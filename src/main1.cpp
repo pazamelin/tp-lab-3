@@ -11,6 +11,6 @@
 
 
 
-//int main() {
-//    std::cout << calcDelta() << std::endl;
-//}
+int main() {
+    std::cout << calcDelta() << std::endl;
+}

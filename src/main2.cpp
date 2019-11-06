@@ -11,6 +11,6 @@
 
 
 
-//int main() {
-//    std::cout << calcCost() << std::endl;
-//}
+int main() {
+    std::cout << calcCost() << std::endl;
+}
