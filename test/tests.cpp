@@ -18,12 +18,12 @@ TEST(circle,circle_get_ference1)
 TEST(circle,circle_get_area2)
 {
     Circle c(10.0);
-    EXPECT_DOUBLE_EQ(314.0,c.getArea());
+    EXPECT_DOUBLE_EQ(314.159,c.getArea());
 }
 TEST(circle,circle_get_ference2)
 {
     Circle c(10.0);
-    EXPECT_DOUBLE_EQ(62.8,c.getFerence());
+    EXPECT_DOUBLE_EQ(62.8319,c.getFerence());
 }
 TEST(date,datetime_gettomorrow1)
 {

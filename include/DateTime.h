@@ -16,6 +16,7 @@ class DateTime {
 private:
     time_t _time_value;
     tm *_time;
+    tm* _copyDate(tm*);
     std::string _printDate(tm*);
 public:
     DateTime(int, int, int);
@@ -29,6 +30,5 @@ public:
     std::string getPast(unsigned int);
     unsigned int getDifference(DateTime&);
 };
-
 
 #endif /* DateTime_h */

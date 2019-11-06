@@ -36,6 +36,23 @@ std::vector<std::string> weekDays = {
     "satturday"
 };
 
+tm* DateTime::_copyDate(tm* src) {
+    tm *dest = new tm;
+    dest->tm_sec = src->tm_sec;
+    dest->tm_min = src->tm_min;
+    dest->tm_hour = src->tm_hour;
+    dest->tm_mday = src->tm_mday;
+    dest->tm_mon = src->tm_mon;
+    dest->tm_year = src->tm_year;
+    dest->tm_wday = src->tm_wday;
+    dest->tm_yday = src->tm_yday;
+    dest->tm_isdst = src->tm_isdst;
+    dest->tm_gmtoff = src->tm_gmtoff;
+    dest->tm_zone = new char[strlen(src->tm_zone)];
+    strcpy(dest->tm_zone, src->tm_zone);
+    return dest;
+}
+
 std::string DateTime::_printDate(tm *date) {
     std::string res;
     if (date->tm_mday < 10)
@@ -76,42 +93,31 @@ std::string DateTime::getToday() {
 }
 
 std::string DateTime::getYesterday() {
-    time_t yest_time = _time_value;
-    tm *yest = localtime(&yest_time);
+    tm *yest = _copyDate(_time);
     yest->tm_mday -= 1;
     mktime(yest);
-    localtime(&_time_value);
     return _printDate(yest);
 }
 
 std::string DateTime::getTomorrow() {
-    time_t tom_time = _time_value;
-    tm *tom = localtime(&tom_time);
+    tm *tom = _copyDate(_time);
     tom->tm_mday += 1;
     mktime(tom);
-    std::string res = _printDate(tom);
-    localtime(&_time_value);
-    return res;
+    return _printDate(tom);
 }
 
 std::string DateTime::getFuture(unsigned int diff) {
-    time_t fut_time = _time_value;
-    tm *fut = localtime(&fut_time);
+    tm *fut = _copyDate(_time);
     fut->tm_mday += diff;
     mktime(fut);
-    std::string res = _printDate(fut);
-    localtime(&_time_value);
-    return res;
+    return _printDate(fut);
 }
 
 std::string DateTime::getPast(unsigned int diff) {
-    time_t past_time = _time_value;
-    tm *past = localtime(&past_time);
+    tm *past = _copyDate(_time);
     past->tm_mday += diff;
     mktime(past);
-    std::string res = _printDate(past);
-    localtime(&_time_value);
-    return res;
+    return _printDate(past);
 }
 
 unsigned int DateTime::getDifference(DateTime &date) {
