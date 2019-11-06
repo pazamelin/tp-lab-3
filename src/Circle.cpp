@@ -1,7 +1,7 @@
 //
 // Created by Mary on 04.11.2019.
 //
-
+#define M_PI 3.14
 #include "../include/Circle.h"
 #include <math.h>
 using namespace std;
