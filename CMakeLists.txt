@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 
 # Make PROJECT_SOURCE_DIR, PROJECT_BINARY_DIR, and PROJECT_NAME available.
-set(PROJECT_NAME task1) 
+set(PROJECT_NAME task1)
 project(${PROJECT_NAME})
 
 set(CMAKE_CXX_FLAGS "-g -Wall")
@@ -19,19 +19,19 @@ file(GLOB TEST_SRC_FILES ${PROJECT_SOURCE_DIR}/test/*.cpp)
 
 
 set(SRC_FILES1 ${PROJECT_SOURCE_DIR}/src/Circle.cpp
-               ${PROJECT_SOURCE_DIR}/src/task1.cpp include/Circle.h src/Circle.cpp include/Circle.h src/task1.cpp include/task1.h include/task2.h src/main1.cpp src/main2.cpp src/main3.cpp src/DateTime.cpp include/DateTime.h src/task2.cpp)
-               
-set(SRC_FILES3 ${PROJECT_SOURCE_DIR}/src/DateTime.cpp src/main3.cpp src/DateTime.cpp include/DateTime.h)
+        ${PROJECT_SOURCE_DIR}/src/task1.cpp)
+
+set(SRC_FILES3 ${PROJECT_SOURCE_DIR}/src/DateTime.cpp)
 
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_library(task1_lib ${SRC_FILES1} include/Circle.h src/task1.cpp src/main1.cpp src/main2.cpp)
-add_library(task3_lib ${SRC_FILES3} src/main3.cpp src/DateTime.cpp include/DateTime.h)
+add_library(task1_lib ${SRC_FILES1})
+add_library(task3_lib ${SRC_FILES3})
 
-add_executable(task1 ${PROJECT_SOURCE_DIR}/src/main1.cpp include/Circle.h src/task1.cpp src/main1.cpp src/main2.cpp)
-add_executable(task2 ${PROJECT_SOURCE_DIR}/src/main2.cpp src/task2.cpp src/main2.cpp src/task2.cpp)
-add_executable(task3 ${PROJECT_SOURCE_DIR}/src/main3.cpp src/DateTime.cpp include/DateTime.h)
+add_executable(task1 ${PROJECT_SOURCE_DIR}/src/main1.cpp )
+add_executable(task2 ${PROJECT_SOURCE_DIR}/src/main2.cpp )
+add_executable(task3 ${PROJECT_SOURCE_DIR}/src/main3.cpp )
 
 target_link_libraries(task1 task1_lib)
 target_link_libraries(task2 task1_lib)
@@ -57,7 +57,7 @@ if (BUILD_TESTS)
   ##############
   # Unit Tests
   ##############
-  add_executable(runUnitTests ${TEST_SRC_FILES} include/Circle.h src/task1.cpp src/main1.cpp src/main2.cpp src/main3.cpp src/DateTime.cpp include/DateTime.h)
+  add_executable(runUnitTests ${TEST_SRC_FILES})
 
   # Standard linking to gtest stuff.
   target_link_libraries(runUnitTests gtest gtest_main)
