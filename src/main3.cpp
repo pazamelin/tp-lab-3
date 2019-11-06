@@ -8,10 +8,9 @@
 
 #include <iostream>
 #include "DateTime.h"
-#include <list>
-#include <array>
 
 
 int main() {
-    
+    DateTime dt(31,10,2018);
+    std::cout << dt.getTomorrow() << std::endl;
 }

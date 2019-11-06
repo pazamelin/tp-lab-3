@@ -9,8 +9,15 @@
 #include "Circle.h"
 #include <iostream>
 
-
-
-int main() {
-    std::cout << calcDelta() << std::endl;
+double calcDelta() {
+    const double radius_before = 6378.1 * 1000;
+    Circle earth(radius_before);
+    double length_before = earth.getFerence();
+    earth.setFerence(length_before + 1);
+    return earth.getRadius() - radius_before;
+    
 }
+
+//int main() {
+//    std::cout << calcDelta() << std::endl;
+//}

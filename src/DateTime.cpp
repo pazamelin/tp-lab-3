@@ -49,7 +49,8 @@ tm* DateTime::_copyDate(tm* src) {
     dest->tm_isdst = src->tm_isdst;
     dest->tm_gmtoff = src->tm_gmtoff;
     dest->tm_zone = new char[strlen(src->tm_zone)];
-    strcpy(dest->tm_zone, src->tm_zone);
+    const char* src_str = src->tm_zone;
+    strcpy(dest->tm_zone, src_str);
     return dest;
 }
 
