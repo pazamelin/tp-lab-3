@@ -30,7 +30,7 @@ void Circle::setFerence(double cur_ference){
 void Circle::setArea(double cur_area){
     this->area = cur_area;
     this->radius = sqrt(this->area/M_PI);
-    this->ference = this->ference = 2*M_PI*this->radius;
+    this->ference = 2*M_PI*this->radius;
 }
 
 double Circle::getRadius(){

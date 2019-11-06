@@ -11,5 +11,7 @@ int main(){
     cout << circle.getFerence()<<endl<<circle.getArea()<<endl;
     cout << endl;
 
-    cout << calcDelta()<<endl<<calcCost();
+    cout << calcDelta()<<endl<<calcCost()<<endl;
+    Circle c(0.0);
+    cout << c.getArea()<<endl;
 }
