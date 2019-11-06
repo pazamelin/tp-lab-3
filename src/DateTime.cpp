@@ -42,7 +42,6 @@ int DateTime::getDifference(DateTime & second_date) {
 char * dateToString(DateTime * date){
     auto * buf = new char[40];
     strftime(buf, 40, "%d %B %Y, %A", date->getDate());
-
     return toLowerCase(buf);
 }
 

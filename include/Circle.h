@@ -17,8 +17,16 @@ private:
 
 public:
     const double pi = floor(M_PI * pow(10, 4) + 0.05) / pow(10, 4);
-    explicit Circle(double = 0.0);
 
+    explicit Circle(double radius = 0.0) {
+
+        this->radius = radius;
+        this->calcFerence();
+        this->calcArea();
+
+    }
+
+    ~Circle() = default;
 
     void setRadius(double r){this->radius = r; this->calcFerence(); this->calcArea();}
     void setFerence(double f){this->ference = f; this->calcRadiusFromFerence(f); this->calcArea();}

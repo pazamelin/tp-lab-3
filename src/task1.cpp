@@ -9,6 +9,7 @@ double calcDelta(){
     auto *rope =  new Circle(radius);
     rope->setFerence(rope->getFerence() + 1.0);
     double res = rope->getRadius() - radius;
+    delete rope;
     return floor(res*pow(10, 3) + 0.5) / pow(10, 3);
 }
 
@@ -21,5 +22,7 @@ double calcCost(){
     auto *full_pool = new Circle(pool_radius + path_width);
     double path_full_cost = path_cost * (full_pool->getNotFlooredArea() - pool->getNotFlooredArea());
     double fence_full_cost = fence_cost * (full_pool->getNotFlooredFerence());//50264
+    delete pool;
+    delete full_pool;
     return path_full_cost + fence_full_cost;
 }

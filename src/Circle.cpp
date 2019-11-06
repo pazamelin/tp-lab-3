@@ -4,14 +4,6 @@
 
 #include "Circle.h"
 
-Circle::Circle(double radius) {
-
-    this->radius = radius;
-    this->calcFerence();
-    this->calcArea();
-
-}
-
 void Circle::calcRadiusFromFerence(double val) {
     this->radius = val / (2 * pi);
 }
