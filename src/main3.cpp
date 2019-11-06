@@ -8,11 +8,10 @@
 
 #include <iostream>
 #include "DateTime.h"
+#include <list>
+#include <array>
 
 
 int main() {
-    DateTime today;
-    std::cout << today.getToday() << std::endl;
-    std::cout << today.getTomorrow() << std::endl;
-    std::cout << today.getToday() << std::endl;
+    
 }
