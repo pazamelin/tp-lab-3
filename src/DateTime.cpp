@@ -8,7 +8,7 @@
 
 #include "DateTime.h"
 #include <vector>
-#include <string.h>
+#include <cstring>
 
 //CHECK FOR SPELLING
 std::vector<std::string> months = {
