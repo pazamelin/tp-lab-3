@@ -20,8 +20,8 @@ double calcCost(){
     double fence_cost = 2000.0;
     auto *pool = new Circle(pool_radius);
     auto *full_pool = new Circle(pool_radius + path_width);
-    double path_full_cost = path_cost * (full_pool->getNotFlooredArea() - pool->getNotFlooredArea());
-    double fence_full_cost = fence_cost * (full_pool->getNotFlooredFerence());//50264
+    double path_full_cost = path_cost * (full_pool->getArea() - pool->getArea());
+    double fence_full_cost = fence_cost * (full_pool->getFerence());//50264
     delete pool;
     delete full_pool;
     return path_full_cost + fence_full_cost;

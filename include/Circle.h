@@ -33,10 +33,8 @@ public:
     void setArea(double a){this->area = a; this->calcRadiusFromArea(a); this->calcFerence();}
 
     double getRadius(){ return this->radius;}
-    double getFerence(){ return floor(this->ference * pow(10, 1) + 0.5) / pow(10, 1);}
-    double getArea(){ return floor(this->area);}
-    double getNotFlooredFerence(){return this->ference;}
-    double getNotFlooredArea(){ return this->area;}
+    double getFerence(){ return this->ference;}
+    double getArea(){ return this->area;}
 
     void calcRadiusFromFerence(double);
     void calcRadiusFromArea(double);
