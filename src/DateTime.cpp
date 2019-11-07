@@ -48,14 +48,21 @@ tm* DateTime::_copyDate(tm* src) {
     dest->tm_yday = src->tm_yday;
     dest->tm_isdst = src->tm_isdst;
     dest->tm_gmtoff = src->tm_gmtoff;
-//    dest->tm_zone = new char[strlen(src->tm_zone)];
-//    const char* src_str = src->tm_zone;
-//    strcpy(dest->tm_zone, src_str);
+    //    dest->tm_zone = new char[strlen(src->tm_zone)];
+    //    const char* src_str = src->tm_zone;
+    //    strcpy(dest->tm_zone, src_str);
     return dest;
 }
 
 std::string DateTime::_printDate(tm *date) {
     std::string res;
+    tm *comp = new tm;
+    comp->tm_mday = date->tm_mday;
+    comp->tm_year = date->tm_year;
+    comp->tm_mon = date->tm_mon;
+    mktime(comp);
+    if (comp->tm_wday != date->tm_wday)
+        date->tm_wday = comp->tm_wday;
     if (date->tm_mday < 10)
         res = "0" + std::to_string(date->tm_mday);
     else
