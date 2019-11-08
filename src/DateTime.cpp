@@ -32,17 +32,22 @@ string DateTime::getToday() {
     string weekDays[] = {"sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"};
     string months[] = {"january", "february", "march", "april", "may", "june",
                        "july", "august", "september", "october", "november", "december"};
-    return (to_string(current_time->tm_mday) + string(" ") +
+    string day;
+    if (current_time->tm_mday < 10) {
+        day = "0";
+    }
+    day += to_string(current_time->tm_mday);
+    return (day + string(" ") +
             months[current_time->tm_mon] + string(" ") + to_string(current_time->tm_year + 1900) +
             string(",") + string(" ") + weekDays[current_time->tm_wday]);
 }
 
 string DateTime::getYesterday() {
-    return this->getFuture(1);
+    return this->getPast(1);
 }
 
 string DateTime::getTomorrow(){
-    return this->getPast(1);
+    return this->getFuture(1);
 }
 
 string DateTime::getPast(unsigned int n) {
