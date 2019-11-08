@@ -38,9 +38,9 @@ double Circle::getRadius(){
 }
 
 double Circle::getFerence(){
-    return this->ference;
+    return round(this->ference *1000)/1000;
 }
 
 double Circle::getArea(){
-    return this->area;
+    return round(this->area*10000)/10000;
 }
