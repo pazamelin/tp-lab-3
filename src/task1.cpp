@@ -2,7 +2,7 @@
 #include "Circle.h"
 #include <iomanip>
 double calcDelta(){
-	const int radius = 6378.1 * 1000.0;//m
+	const int radius = 6378100.0;//m
 	const int delt = 1.0;//m
 	Circle first(radius);
 	Circle second(radius);
