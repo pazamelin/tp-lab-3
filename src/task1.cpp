@@ -2,8 +2,8 @@
 #include "Circle.h"
 #include <iomanip>
 double calcDelta(){
-	const int radius = 6378.1 * 1000;//m
-	const int delt = 1;//m
+	const int radius = 6378.1 * 1000.0;//m
+	const int delt = 1.0;//m
 	Circle first(radius);
 	Circle second(radius);
 	second.setFerence(first.getFerence() + delt);
@@ -11,11 +11,11 @@ double calcDelta(){
 }
 
 double calcCost() {
-	const int FenceCost = 2000;
-	const int PathCost = 1000;
-	const int PoolRadius = 3;
-	const int PoolRadiusWithPath = 4;
+	const double FenceCost = 2000.0;
+	const double PathCost = 1000.0;
+	const double PoolRadius = 3.0;
+	const double PoolRadiusWithPath = 4.0;
 	Circle pool(PoolRadius);
 	Circle poolwp(PoolRadiusWithPath);
-	return (poolwp.getArea() - pool.getArea()) * 1000 + poolwp.getFerence() * 2000;
+	return (poolwp.getArea() - pool.getArea()) * 1000.0 + poolwp.getFerence() * 2000.0;
 }
