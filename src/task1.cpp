@@ -5,7 +5,9 @@ double calcDelta() {
 	Circle a(radiusEarth);
 	Circle b = a;
 	a.setFerence(a.getFerence() + 1);
-	return a.getRadius() - b.getRadius();
+	int t = 1000.0*(a.getRadius() - b.getRadius());
+	double d = t / 1000.0;
+	return d;
 }
 double calcCost() {
 	Circle a(3.0);

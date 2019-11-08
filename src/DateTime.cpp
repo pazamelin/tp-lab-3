@@ -23,10 +23,7 @@ DateTime::DateTime(DateTime& _datetime) {
 std::string DateTime::getData(int N)
 {
 	DateTime tempDate = *this;
-	if( 1 <= tempDate.day + N && tempDate.day + N <= daysInMonth[tempDate.month] )
-	{
-		tempDate.day += N;
-	}
+	if (1 <= tempDate.day + N && tempDate.day + N <= daysInMonth[tempDate.month]);
 	else
 	{
 		
@@ -48,14 +45,15 @@ std::string DateTime::getData(int N)
 		{
 			while (!(1 <= tempDate.day + N && tempDate.day + N <= daysInMonth[tempDate.month]))
 			{
+
+				N -= (daysInMonth[tempDate.month] - tempDate.day + 1);
 				++tempDate.month;
 				if (tempDate.month == 12)
 				{
 					tempDate.month = 0;
 					++tempDate.year;
 				}
-				N -= tempDate.day;
-				tempDate.day = daysInMonth[tempDate.month];
+				tempDate.day = 1;
 			}
 		}
 		
