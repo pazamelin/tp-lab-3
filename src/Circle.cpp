@@ -42,5 +42,5 @@ double Circle::getFerence(){
 }
 
 double Circle::getArea(){
-    return round(this->area*10000)/10000;
+    return round(this->area*1000)/1000;
 }
