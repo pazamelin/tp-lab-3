@@ -1,5 +1,5 @@
 #include "task1.h"
-#include "circle.h"
+#include "Circle.h"
 
 double calcDelta()
 {

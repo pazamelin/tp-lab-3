@@ -1,5 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
-#include "task1.h";
+#include "task1.h"
 
 Circle::Circle(double value)
 {
