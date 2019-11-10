@@ -9,6 +9,7 @@
 #include "DateTime.h"
 #include <vector>
 #include <cstring>
+#include <iostream>
 
 //CHECK FOR SPELLING
 std::vector<std::string> months = {
@@ -76,10 +77,30 @@ DateTime::DateTime(int day, int month, int year) {
     _time->tm_mday = day;
     _time->tm_mon = month - 1;
     _time->tm_year = year - 1900;
+    //    std::cout << "before: " <<_time_value << std::endl;
     _time_value = mktime(_time);
+    //    std::cout << "year: " << _time->tm_year << '\n'
+    //              << "month : " << _time->tm_mon << '\n'
+    //    << "day : " << _time->tm_mday << '\n'
+    //    << "week day : " << _time->tm_wday << std::endl;
+    //    std::cout << "after: " <<_time_value << std::endl << std::endl;
     _time->tm_mday = day;
     _time->tm_mon = month - 1;
     _time->tm_year = year - 1900;
+    _time_value = mktime(_time);
+    //    std::cout << "year: " << _time->tm_year << '\n'
+    //    << "month :" << _time->tm_mon << '\n'
+    //    << "day : " << _time->tm_mday << std::endl
+    //    << "week day: " << _time->tm_wday << _time->tm_mday << std::endl;
+    //    std::cout << "after: " <<_time_value << std::endl << std::endl;
+    //    std::cout << "object created" << std::endl << std::endl;
+    
+    _time = localtime(&_time_value);
+    //    std::cout << "year: " << _time->tm_year << '\n'
+    //    << "month :" << _time->tm_mon << '\n'
+    //    << "day : " << _time->tm_mday << std::endl
+    //    << "week day: " << _time->tm_wday << _time->tm_mday << std::endl;
+    //    std::cout << "after: " <<_time_value << std::endl << std::endl;
 }
 
 DateTime::DateTime() {
@@ -128,12 +149,20 @@ std::string DateTime::getPast(unsigned int diff) {
     return _printDate(past);
 }
 
+//unsigned int DateTime::getDifference(DateTime &date) {
+//    time_t diff = difftime(date._time_value, _time_value);
+//    int diff = date._time_value - _time_value;
+//    diff = abs(diff);
+//    return diff / 86400;
+//}
+
 unsigned int DateTime::getDifference(DateTime &date) {
-    time_t diff = difftime(date._time_value, _time_value);
-    diff = abs(diff);
-    return diff / 86400;
+    return abs(date._time->tm_yday - _time->tm_yday);
 }
 
+time_t DateTime::get_time() {
+    return _time_value;
+}
 
 
 
