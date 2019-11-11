@@ -1,5 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "DateTime.h"
+#include <mem.h>
 #include <string>
 #include <ctime>
 #include <vector>
