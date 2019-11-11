@@ -17,7 +17,7 @@ double calcCost() {
 
     Circle* Pool = new Circle(3);
     Circle* PoolRoad = new Circle(Pool->getRadius()+1);
-    double costRoad = (PoolRoad->getArea() - Pool->getArea())*1000;
-    double costFence = PoolRoad->getFerence()*2000;
-    return round((costFence+costRoad)*1000)/1000.0;
+    double costRoad = (PoolRoad->getArea() - Pool->getArea())*1000.0;
+    double costFence = PoolRoad->getFerence()*2000.0;
+    return int((costFence+costRoad)*1000)/1000.0;
 }
