@@ -6,7 +6,7 @@ Circle::Circle(double r)
 {
 	radius = r;
 	ference = 2 * M_PI * r;
-	area = M_M_PI * r * r;
+	area = M_PI * r * r;
 }
 void Circle::setRadius(double r)
 {
