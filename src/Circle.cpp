@@ -17,7 +17,7 @@ void Circle::setRadius(double r)
 void Circle::setFerence(double f)
 {
 	ference = f;
-	radius = f / (2 * M_PI);
+	radius = f / M_PI / 2;
 	area = M_PI * radius * radius;
 }
 void Circle::setArea(double a)
