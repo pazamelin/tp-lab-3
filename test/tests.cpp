@@ -4,7 +4,7 @@
 #include "Circle.h"
 #include "DateTime.h"
 #include <string>
-	
+
 TEST(circle,circle_get_area1)
 {
     Circle c(0.0);
@@ -58,10 +58,10 @@ TEST(date,datetime_getdiff2)
     EXPECT_EQ(diff,dt2.getDifference(dt1));
 }
 TEST(calc,delta)
-{    
+{
     EXPECT_DOUBLE_EQ(0.159,calcDelta());
 }
 TEST(calc,pool_cost)
-{    
-    EXPECT_DOUBLE_EQ(72256.6,calcCost());
+{
+    EXPECT_DOUBLE_EQ(72220,calcCost());
 }

@@ -10,6 +10,6 @@
 using namespace std;
 
 int main() {
-    cout << int(calcCost()*100)/100.0 << endl;
+    cout << calcCost() << endl;
     return 0;
 }

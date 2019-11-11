@@ -3,6 +3,7 @@
 //
 
 #include "Circle.h"
+#define M_PI 3.14
 
 Circle::Circle(double radius) {
     this->radius = radius;
@@ -33,9 +34,9 @@ double Circle::getRadius() {
 }
 
 double Circle::getFerence() {
-    return this->ference;
+    return round(this->ference *1000)/1000;
 }
 
 double Circle::getArea() {
-    return this->area;
+    return round(this->area*1000)/1000;
 }

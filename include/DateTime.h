@@ -15,7 +15,6 @@ using namespace std;
 
 class DateTime {
 private:
-    time_t seconds;
     tm date;
 
 public:

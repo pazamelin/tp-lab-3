@@ -41,7 +41,10 @@ int main() {
 
     date1 = new DateTime(10, 12, 2008);
     date2 = new DateTime(10, 12, 2008);
-    cout << date2->getDifference(*date1);
+    cout << date2->getDifference(*date1)<<endl;
+
+    DateTime dt(31,10,2018);
+    cout<<dt.getTomorrow();
 
     return 0;
 }

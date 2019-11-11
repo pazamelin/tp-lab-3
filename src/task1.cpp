@@ -9,12 +9,15 @@ double calcDelta() {
     Circle *earth = new Circle(6378.1);
     double radius = earth->getRadius();
     earth->setFerence(earth->getFerence() + 1);
-    return earth->getRadius() - radius;
+    double res = int((earth->getRadius() - radius) * 1000) / 1000.0;
+    return res;
 }
 
 double calcCost() {
-    Circle *pool = new Circle(3);
-    double area = pool->getArea();
-    pool->setRadius(4);
-    return ((pool->getArea() - area)*100)/100.0 * 1000 + ((pool->getFerence()*100)/100.0) * 2000;
+
+    Circle* Pool = new Circle(3);
+    Circle* PoolRoad = new Circle(Pool->getRadius()+1);
+    double costRoad = (PoolRoad->getArea() - Pool->getArea())*1000;
+    double costFence = PoolRoad->getFerence()*2000;
+    return round((costFence+costRoad)*1000)/1000.0;
 }
