@@ -4,9 +4,6 @@
 
 #include "DateTime.h"
 
-//Because of capitalized strings provided by strftime
-string dayWeek[] = {"sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"};
-
 DateTime::DateTime(int day, int mon, int year) {
     time_t seconds = time(0);
     date = *localtime(&seconds);
@@ -28,9 +25,13 @@ DateTime::DateTime(DateTime &forCopy) {
 
 string DateTime::getToday() {
     char str[50];
-    strftime(str, 50, "%d %B %Y, ", &date);
+    strftime(str, 50, "%d %B %Y, %A", &date);
     string res = string(str);
-    res = res + dayWeek[date.tm_wday];
+    for (int i = 0; i < res.length(); i++) {
+        if ('A' < res[i] && res[i] < 'Z') {
+            res[i] = res[i] - ('A' - 'a');
+        }
+    }
     return res;
 }
 
@@ -38,9 +39,13 @@ string DateTime::getYesterday() {
     char str[50];
     time_t tmp = mktime(&date) - 24 * 60 * 60;
     tm *yesterday = localtime(&tmp);
-    strftime(str, 50, "%d %B %Y, ", yesterday);
+    strftime(str, 50, "%d %B %Y, %A", yesterday);
     string res = string(str);
-    res = res + dayWeek[yesterday->tm_wday];
+    for (int i = 0; i < res.length(); i++) {
+        if ('A' < res[i] && res[i] < 'Z') {
+            res[i] = res[i] - ('A' - 'a');
+        }
+    }
     return res;
 }
 
@@ -48,9 +53,13 @@ string DateTime::getTomorrow() {
     char str[50];
     time_t tmp = mktime(&date) + 24 * 60 * 60;
     tm *tomorrow = localtime(&tmp);
-    strftime(str, 50, "%d %B %Y, ", tomorrow);
+    strftime(str, 50, "%d %B %Y, %A", tomorrow);
     string res = string(str);
-    res = res + dayWeek[tomorrow->tm_wday];
+    for (int i = 0; i < res.length(); i++) {
+        if ('A' < res[i] && res[i] < 'Z') {
+            res[i] = res[i] - ('A' - 'a');
+        }
+    }
     return res;
 }
 
@@ -58,9 +67,13 @@ string DateTime::getFuture(unsigned int N) {
     char str[50];
     time_t tmp = mktime(&date) + N * 24 * 60 * 60;
     tm *future = localtime(&tmp);
-    strftime(str, 50, "%d %B %Y, ", future);
+    strftime(str, 50, "%d %B %Y, %A", future);
     string res = string(str);
-    res = res + dayWeek[future->tm_wday];
+    for (int i = 0; i < res.length(); i++) {
+        if ('A' < res[i] && res[i] < 'Z') {
+            res[i] = res[i] - ('A' - 'a');
+        }
+    }
     return res;
 }
 
@@ -68,9 +81,13 @@ string DateTime::getPast(unsigned int N) {
     char str[50];
     time_t tmp = mktime(&date) - N * 24 * 60 * 60;
     tm *past = localtime(&tmp);
-    strftime(str, 50, "%d %B %Y, ", past);
+    strftime(str, 50, "%d %B %Y, %A", past);
     string res = string(str);
-    res = res + dayWeek[past->tm_wday];
+    for (int i = 0; i < res.length(); i++) {
+        if ('A' < res[i] && res[i] < 'Z') {
+            res[i] = res[i] - ('A' - 'a');
+        }
+    }
     return res;
 }
 
