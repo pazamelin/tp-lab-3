@@ -1,4 +1,4 @@
-#include "TASK1.H"
+#include "task1.h"
 #include "Circle.h"
 
 double calcDelta()
