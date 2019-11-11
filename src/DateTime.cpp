@@ -10,6 +10,7 @@ DateTime::DateTime(int day, int mon, int year) {
     date.tm_year = year - 1900;
     date.tm_mon = mon - 1;
     date.tm_mday = day;
+    mktime(&date);
 }
 
 DateTime::DateTime() {

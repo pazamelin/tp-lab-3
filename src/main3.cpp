@@ -40,11 +40,15 @@ int main() {
     delete (date2);
 
     date1 = new DateTime(10, 12, 2008);
-    date2 = new DateTime(10, 12, 2008);
-    cout << date2->getDifference(*date1)<<endl;
+    date2 = new DateTime(10, 12, 2009);
+    cout << date2->getDifference(*date1) << endl;
 
-    DateTime dt(31,10,2018);
-    cout<<dt.getTomorrow();
+    DateTime dt(31, 10, 2018);
+    cout << dt.getTomorrow() << endl;
+
+    DateTime dt2(1, 11, 2018);
+    cout << dt2.getTomorrow() << endl;
+    cout << dt2.getToday() << endl;
 
     return 0;
 }
