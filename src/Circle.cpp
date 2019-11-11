@@ -1,6 +1,6 @@
 #include <math.h>
 #define pi 3.14159265359
-#include "Ñircle.h"
+#include "Circle.h"
 
 Circle::Circle(double r)
 {
