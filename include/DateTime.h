@@ -7,7 +7,8 @@
 
 #include <bits/stdc++.h>
 
-using std::string, std::vector;
+using std::string;
+using std::vector;
 
 class DateTime {
     tm curtime;
