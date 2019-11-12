@@ -23,5 +23,6 @@ double calcCost() {
 
     double cost1 = costOfConcrete * (trailAndPool.getArea() - pool.getArea());
     double cost2 = costOfFence * trailAndPool.getFerence();
-    return floor((cost1 + cost2)*10)/10;
+    double cost = cost1 + cost2
+    return floor(cost*1000)/1000;
 }
