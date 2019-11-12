@@ -73,34 +73,15 @@ std::string DateTime::_printDate(tm *date) {
 }
 
 DateTime::DateTime(int day, int month, int year) {
-    _time = new tm;
-    _time->tm_mday = day;
-    _time->tm_mon = month - 1;
-    _time->tm_year = year - 1900;
-    //    std::cout << "before: " <<_time_value << std::endl;
-    _time_value = mktime(_time);
-    //    std::cout << "year: " << _time->tm_year << '\n'
-    //              << "month : " << _time->tm_mon << '\n'
-    //    << "day : " << _time->tm_mday << '\n'
-    //    << "week day : " << _time->tm_wday << std::endl;
-    //    std::cout << "after: " <<_time_value << std::endl << std::endl;
-    _time->tm_mday = day;
-    _time->tm_mon = month - 1;
-    _time->tm_year = year - 1900;
-    _time_value = mktime(_time);
-    //    std::cout << "year: " << _time->tm_year << '\n'
-    //    << "month :" << _time->tm_mon << '\n'
-    //    << "day : " << _time->tm_mday << std::endl
-    //    << "week day: " << _time->tm_wday << _time->tm_mday << std::endl;
-    //    std::cout << "after: " <<_time_value << std::endl << std::endl;
-    //    std::cout << "object created" << std::endl << std::endl;
-    
+    time(&_time_value);
     _time = localtime(&_time_value);
-    //    std::cout << "year: " << _time->tm_year << '\n'
-    //    << "month :" << _time->tm_mon << '\n'
-    //    << "day : " << _time->tm_mday << std::endl
-    //    << "week day: " << _time->tm_wday << _time->tm_mday << std::endl;
-    //    std::cout << "after: " <<_time_value << std::endl << std::endl;
+    _time->tm_mday = day;
+    _time->tm_mon = month - 1;
+    _time->tm_year = year - 1900;
+    _time_value = mktime(_time);
+    _time->tm_mday = day;
+    _time->tm_mon = month - 1;
+    _time->tm_year = year - 1900;
 }
 
 DateTime::DateTime() {
@@ -114,14 +95,16 @@ DateTime::DateTime(DateTime const &src) {
 }
 
 DateTime::~DateTime() {
-    delete _time;
+    //    delete _time;
 }
 
 std::string DateTime::getToday() {
+    _time = localtime(&_time_value);
     return _printDate(_time);
 }
 
 std::string DateTime::getYesterday() {
+    _time = localtime(&_time_value);
     tm *yest = _copyDate(_time);
     yest->tm_mday -= 1;
     mktime(yest);
@@ -129,6 +112,7 @@ std::string DateTime::getYesterday() {
 }
 
 std::string DateTime::getTomorrow() {
+    _time = localtime(&_time_value);
     tm *tom = _copyDate(_time);
     tom->tm_mday += 1;
     mktime(tom);
@@ -136,6 +120,7 @@ std::string DateTime::getTomorrow() {
 }
 
 std::string DateTime::getFuture(unsigned int diff) {
+    _time = localtime(&_time_value);
     tm *fut = _copyDate(_time);
     fut->tm_mday += diff;
     mktime(fut);
@@ -143,6 +128,7 @@ std::string DateTime::getFuture(unsigned int diff) {
 }
 
 std::string DateTime::getPast(unsigned int diff) {
+    _time = localtime(&_time_value);
     tm *past = _copyDate(_time);
     past->tm_mday += diff;
     mktime(past);
@@ -157,7 +143,7 @@ std::string DateTime::getPast(unsigned int diff) {
 //}
 
 unsigned int DateTime::getDifference(DateTime &date) {
-    return abs(date._time->tm_yday - _time->tm_yday);
+    return abs(date._time_value - _time_value) / 86400;
 }
 
 time_t DateTime::get_time() {
