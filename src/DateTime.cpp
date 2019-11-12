@@ -135,18 +135,11 @@ std::string DateTime::getPast(unsigned int diff) {
     return _printDate(past);
 }
 
-//unsigned int DateTime::getDifference(DateTime &date) {
-//    time_t diff = difftime(date._time_value, _time_value);
-//    int diff = date._time_value - _time_value;
-//    diff = abs(diff);
-//    return diff / 86400;
-//}
-
 unsigned int DateTime::getDifference(DateTime &date) {
     return abs(date._time_value - _time_value) / 86400;
 }
 
-time_t DateTime::get_time() {
+time_t DateTime::getTime() {
     return _time_value;
 }
 

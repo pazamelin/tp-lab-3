@@ -29,7 +29,7 @@ public:
     std::string getFuture(unsigned int);
     std::string getPast(unsigned int);
     unsigned int getDifference(DateTime&);
-    time_t get_time();
+    time_t getTime();
 };
 
 #endif /* DateTime_h */
