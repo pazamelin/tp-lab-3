@@ -1,3 +1,4 @@
+#include <cstdlib>
 #include <ctime>
 #include "DateTime.h"
 
@@ -53,70 +54,76 @@ DateTime::DateTime(DateTime &dateTime)
 DateTime::DateTime()
 {
 	time_t currentTime = time(nullptr);
-	tm localTime;
-	localtime_s(&localTime, &currentTime);
-	this->day = (int8_t)localTime.tm_mday;
-	this->month = 1 + (int8_t)localTime.tm_mon;
-	this->year = 1900 + localTime.tm_year;
+	tm *localTime = localtime(&currentTime);
+	this->day = (int8_t)localTime->tm_mday;
+	this->month = 1 + (int8_t)localTime->tm_mon;
+	this->year = 1900 + localTime->tm_year;
+	free(localTime);
 };
 
 std::string DateTime::getToday()
 {
 	tm localTime = { 0, 0, 0, this->day, this->month - 1, this->year - 1900, 0, 0, 0 };
 	time_t currentTime = mktime(&localTime);
-	localtime_s(&localTime, &currentTime);
-
+	tm *tmpLocalTime = localtime(&currentTime);
+	localTime = *tmpLocalTime;
+	free(tmpLocalTime);
 	return formatString(localTime);
 };
 std::string DateTime::getYesterday()
 {
 	tm localTime = { 0, 0, 0, this->day - 1, this->month - 1, this->year - 1900, 0, 0, 0 };
 	time_t currentTime = mktime(&localTime);
-	localtime_s(&localTime, &currentTime);
-
+	tm *tmpLocalTime = localtime(&currentTime);
+	localTime = *tmpLocalTime;
+	free(tmpLocalTime);
 	return formatString(localTime);
 };
 std::string DateTime::getTomorrow()
 {
 	tm localTime = { 0, 0, 0, this->day + 1, this->month - 1, this->year - 1900, 0, 0, 0 };
 	time_t currentTime = mktime(&localTime);
-	localtime_s(&localTime, &currentTime);
-
+	tm *tmpLocalTime = localtime(&currentTime);
+	localTime = *tmpLocalTime;
+	free(tmpLocalTime);
 	return formatString(localTime);
 };
 std::string DateTime::getFuture(uint32_t n)
 {
 	tm localTime = { 0, 0, 0, this->day + n, this->month - 1, this->year - 1900, 0, 0, 0 };
 	time_t currentTime = mktime(&localTime);
-	localtime_s(&localTime, &currentTime);
-
+	tm *tmpLocalTime = localtime(&currentTime);
+	localTime = *tmpLocalTime;
+	free(tmpLocalTime);
 	return formatString(localTime);
 };
 std::string DateTime::getPast(uint32_t n)
 {
 	tm localTime = { 0, 0, 0, this->day - n, this->month - 1, this->year - 1900, 0, 0, 0 };
 	time_t currentTime = mktime(&localTime);
-	localtime_s(&localTime, &currentTime);
-
+	tm *tmpLocalTime = localtime(&currentTime);
+	localTime = *tmpLocalTime;
+	free(tmpLocalTime);
 	return formatString(localTime);
 };
 int32_t DateTime::getDifference(DateTime &dateTime)
 {
 	tm localTime = { 0, 0, 0, this->day, this->month - 1, this->year - 1900, 0, 0, 0 };
 	tm localTimeToSubtract = { 0, 0, 0, dateTime.day, dateTime.month - 1, dateTime.year - 1900, 0, 0, 0 };
+	int days = 0;
 	if (mktime(&localTime) > mktime(&localTimeToSubtract))
 	{
 		time_t difference = mktime(&localTime) - mktime(&localTimeToSubtract);
-		tm difference2;
-		localtime_s(&difference2, &difference);
-		return difference2.tm_yday;
+		tm *difference2 = localtime(&difference);
+		days = difference2->tm_yday;
+		free(difference2);
 	}
 	else
 	{
 		time_t difference = mktime(&localTimeToSubtract) - mktime(&localTime);
-		tm difference2;
-		localtime_s(&difference2, &difference);
-		return -difference2.tm_yday;
+		tm *difference2 = localtime(&difference);
+		days = difference2->tm_yday;
+		free(difference2);
 	}
-	
+	return days;
 };
