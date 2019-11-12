@@ -58,7 +58,6 @@ DateTime::DateTime()
 	this->day = (int8_t)localTime->tm_mday;
 	this->month = 1 + (int8_t)localTime->tm_mon;
 	this->year = 1900 + localTime->tm_year;
-	free(localTime);
 };
 
 std::string DateTime::getToday()
@@ -67,7 +66,6 @@ std::string DateTime::getToday()
 	time_t currentTime = mktime(&localTime);
 	tm *tmpLocalTime = localtime(&currentTime);
 	localTime = *tmpLocalTime;
-	free(tmpLocalTime);
 	return formatString(localTime);
 };
 std::string DateTime::getYesterday()
@@ -76,7 +74,6 @@ std::string DateTime::getYesterday()
 	time_t currentTime = mktime(&localTime);
 	tm *tmpLocalTime = localtime(&currentTime);
 	localTime = *tmpLocalTime;
-	free(tmpLocalTime);
 	return formatString(localTime);
 };
 std::string DateTime::getTomorrow()
@@ -85,7 +82,6 @@ std::string DateTime::getTomorrow()
 	time_t currentTime = mktime(&localTime);
 	tm *tmpLocalTime = localtime(&currentTime);
 	localTime = *tmpLocalTime;
-	free(tmpLocalTime);
 	return formatString(localTime);
 };
 std::string DateTime::getFuture(uint32_t n)
@@ -94,7 +90,6 @@ std::string DateTime::getFuture(uint32_t n)
 	time_t currentTime = mktime(&localTime);
 	tm *tmpLocalTime = localtime(&currentTime);
 	localTime = *tmpLocalTime;
-	free(tmpLocalTime);
 	return formatString(localTime);
 };
 std::string DateTime::getPast(uint32_t n)
@@ -103,7 +98,6 @@ std::string DateTime::getPast(uint32_t n)
 	time_t currentTime = mktime(&localTime);
 	tm *tmpLocalTime = localtime(&currentTime);
 	localTime = *tmpLocalTime;
-	free(tmpLocalTime);
 	return formatString(localTime);
 };
 int32_t DateTime::getDifference(DateTime &dateTime)
@@ -116,14 +110,12 @@ int32_t DateTime::getDifference(DateTime &dateTime)
 		time_t difference = mktime(&localTime) - mktime(&localTimeToSubtract);
 		tm *difference2 = localtime(&difference);
 		days = difference2->tm_yday;
-		free(difference2);
 	}
 	else
 	{
 		time_t difference = mktime(&localTimeToSubtract) - mktime(&localTime);
 		tm *difference2 = localtime(&difference);
 		days = difference2->tm_yday;
-		free(difference2);
 	}
 	return days;
 };
