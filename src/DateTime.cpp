@@ -57,13 +57,6 @@ tm* DateTime::_copyDate(tm* src) {
 
 std::string DateTime::_printDate(tm *date) {
     std::string res;
-    tm *comp = new tm;
-    comp->tm_mday = date->tm_mday;
-    comp->tm_year = date->tm_year;
-    comp->tm_mon = date->tm_mon;
-    mktime(comp);
-    if (comp->tm_wday != date->tm_wday)
-        date->tm_wday = comp->tm_wday;
     if (date->tm_mday < 10)
         res = "0" + std::to_string(date->tm_mday);
     else
@@ -73,24 +66,21 @@ std::string DateTime::_printDate(tm *date) {
 }
 
 DateTime::DateTime(int day, int month, int year) {
-    time(&_time_value);
+    _time_value = time(NULL);
     _time = localtime(&_time_value);
     _time->tm_mday = day;
     _time->tm_mon = month - 1;
     _time->tm_year = year - 1900;
     _time_value = mktime(_time);
-    _time->tm_mday = day;
-    _time->tm_mon = month - 1;
-    _time->tm_year = year - 1900;
 }
 
 DateTime::DateTime() {
-    time(&_time_value);
+    _time_value = time(NULL);
     _time = localtime(&_time_value);
 }
 
 DateTime::DateTime(DateTime const &src) {
-    _time_value = mktime(src._time);
+    _time_value = src._time_value;
     _time = localtime(&_time_value);
 }
 
