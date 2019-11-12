@@ -6,8 +6,8 @@ Circle::Circle(double rad) {
 
 void Circle::setRadius(double rad) {
     radius = rad;
-    ference = 2 * M_PI * radius;
-    area = M_PI * (radius * radius);
+    ference = round (2 * M_PI * radius*10000)/10000;
+    area = round (M_PI * (radius * radius)*1000)/1000;
 }
 void Circle::setFerence(double fer) {
     ference = fer;
