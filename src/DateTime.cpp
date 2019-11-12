@@ -28,11 +28,11 @@ string DateTime::getToday(){
 }
 
 string DateTime::getYesterday(){
-    return getFuture(1);
+    return getPast(1);
 }
 
 string DateTime::getTomorrow(){
-    return getPast(1);
+    return getFuture(1);
 }
 
 string DateTime::getFuture(unsigned int N){

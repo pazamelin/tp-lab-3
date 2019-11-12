@@ -18,7 +18,7 @@ void Circle::setRadius(double r){
 }
 
 void Circle::setFerence(double f){
-    setRadius(f/2/pi);
+    setRadius(f/(2.0*pi));
 }
 
 void Circle::setArea(double a){
