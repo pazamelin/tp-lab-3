@@ -29,17 +29,17 @@ void Circle::setArea(double _area)
 	ference = 2.0 * pi * radius;
 }
 
-double Circle::getRadius() const
+double Circle::getRadius() 
 {
 	return radius;
 }
 
-double Circle::getFerence() const
+double Circle::getFerence() 
 {
 	return ference;
 }
 
-double Circle::getArea() const
+double Circle::getArea() 
 {
 	return area;
 }
