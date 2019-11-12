@@ -10,6 +10,7 @@ DateTime::DateTime(int day,int month, int year){
     curtime.tm_mday=day;
     curtime.tm_mon=month-1;
     curtime.tm_year=year-1900;
+    t = mktime(&curtime);
 }
 
 DateTime::DateTime(){
@@ -25,6 +26,7 @@ DateTime::DateTime(DateTime &date) {
 
 string DateTime::getToday(){
     return convert(curtime);
+    //return getFuture(0);
 }
 
 string DateTime::getYesterday(){
