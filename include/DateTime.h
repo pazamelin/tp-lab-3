@@ -4,7 +4,7 @@ class DateTime {
 public:
 	DateTime(int, int, int);
 	DateTime();
-	DateTime(DateTime&);	
+	DateTime(const DateTime&);	
 	std::string getToday() const;
 	std::string getYesterday() const; 
 	std::string getTomorrow() const;
