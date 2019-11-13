@@ -5,9 +5,9 @@ public:
 	void setRadius(double);
 	void setFerence(double);
 	void setArea(double);
-	double getRadius();
-	double getFerence();
-	double getArea();
+	double getRadius() const;
+	double getFerence() const;
+	double getArea() const;
 
 private:
 	double radius;
