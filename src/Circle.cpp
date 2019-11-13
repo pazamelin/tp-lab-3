@@ -23,13 +23,13 @@ void Circle::setArea(double a) {
 	radius = sqrt(a / pi);
 	ference = 2 * pi * radius;
 }
-double Circle::getRadius() {
+double Circle::getRadius() const {
 	return radius;
 }
-double Circle::getFerence() {
+double Circle::getFerence() const {
 	return ference;
 }
-double Circle::getArea() {
+double Circle::getArea() const {
 	return area;
 }
 

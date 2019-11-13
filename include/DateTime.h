@@ -6,14 +6,17 @@
 class DateTime {
 private:
 	struct tm Time;
+	static std::string Days[];
+	static std::string Months[];
+	std::string ConvertDate(const struct tm&) const;
 public:
 	DateTime();
-	DateTime(time_t Day, time_t Month, time_t Year);
+	DateTime(time_t, time_t, time_t);
 	DateTime(const DateTime&);
-	std::string getToday();
-	std::string getYesterday(); 
-	std::string getTomorrow(); 
-	std::string getFuture(unsigned int N); 
-	std::string getPast(unsigned int N); 
-	int getDifference(DateTime&);
+	std::string getToday() const;
+	std::string getYesterday() const;
+	std::string getTomorrow() const;
+	std::string getFuture(unsigned int N) const;
+	std::string getPast(unsigned int N) const;
+	int getDifference(DateTime&) const;
 };
