@@ -16,7 +16,7 @@ private:
 	int day;
 	int month;
 	int year;
-	static std::string months[12] = { "january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december" };
-	static std::string days[7] = { "sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday" };
-	static int daysInMonth[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30 ,31, 30 ,31 };
+	std::string months[12] = { "january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december" };
+	std::string days[7] = { "sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday" };
+	int daysInMonth[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30 ,31, 30 ,31 };
 };
