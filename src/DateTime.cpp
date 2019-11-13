@@ -20,7 +20,7 @@ DateTime::DateTime(DateTime& _datetime) {
 	month = _datetime.month;
 	year = _datetime.year;
 }
-std::string DateTime::getData(int N)
+std::string DateTime::getData(int N) const
 {
 	DateTime tempDate = *this;
 	if (1 <= tempDate.day + N && tempDate.day + N <= daysInMonth[tempDate.month]);
@@ -72,27 +72,27 @@ std::string DateTime::getData(int N)
 	result += std::to_string(tempDate.day) + " " + months[tempDate.month] + " " + std::to_string(tempDate.year + 1900) + ", " + days[t.tm_wday];
 	return result;
 }
-std::string DateTime::getToday()
+std::string DateTime::getToday() const
 {
 	return getData(0);
 }
-std::string DateTime::getYesterday()
+std::string DateTime::getYesterday() const
 {
 	return getData(-1);
 }
-std::string DateTime::getTomorrow()
+std::string DateTime::getTomorrow() const
 {
 	return getData(1);
 }
-std::string DateTime::getFuture(unsigned int N)
+std::string DateTime::getFuture(unsigned int N) const
 {
 	return getData(N);
 }
-std::string DateTime::getPast(unsigned int N)
+std::string DateTime::getPast(unsigned int N) const
 {
 	return getData(-int(N));
 }
-int DateTime::getDifference(DateTime& _date_time)
+int DateTime::getDifference(DateTime& _date_time) const
 {
 	DateTime dt1 = year < _date_time.year ? *this : _date_time;
 	DateTime dt2 = year >= _date_time.year ? *this : _date_time;
