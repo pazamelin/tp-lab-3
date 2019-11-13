@@ -15,7 +15,7 @@ DateTime::DateTime() {
 	month = l->tm_mon;
 	year = l->tm_year;
 }
-DateTime::DateTime(DateTime& _datetime) {
+DateTime::DateTime(const DateTime& _datetime) {
 	day = _datetime.day;
 	month = _datetime.month;
 	year = _datetime.year;
