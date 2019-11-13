@@ -8,7 +8,6 @@ public:
 	double getRadius() const;
 	double getFerence() const;
 	double getArea() const;
-
 private:
 	double radius;
 	double ference;
