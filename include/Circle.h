@@ -5,6 +5,7 @@ private:
 	double radius;
 	double ference;
 	double area;
+	static const double pi;
 public:
 	Circle(double);
 	void setRadius(double r);

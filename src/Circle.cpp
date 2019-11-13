@@ -1,8 +1,6 @@
 #include <math.h>
 #include "Circle.h"
 
-const double pi = 3.14;
-
 Circle::Circle(double r) {
 	radius = r;
 	ference = 2 * pi * r;
@@ -33,4 +31,4 @@ double Circle::getArea() const {
 	return area;
 }
 
-	
+const double Circle::pi = 3.14;
