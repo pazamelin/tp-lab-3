@@ -16,7 +16,7 @@ private:
 	int day;
 	int month;
 	int year;
-	static std::string months[12];
-	static std::string days[7];
-	static int daysInMonth[12];
+	static std::string months[];
+	static std::string days[];
+	static int daysInMonth[];
 };
