@@ -3,14 +3,23 @@
 //
 
 #include "DateTime.h"
-static int DAY = 24*60*60;
+static unsigned int DAY = 24*60*60;
+static vector<string> day = {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14",
+                      "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29",
+                      "30", "31"};
+static vector<string> weekday = {"sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"};
+static vector<string> month = {"january", "february", "march", "april", "may", "june", "july", "august", "september",
+                        "october", "november", "december"};
+
 DateTime::DateTime(int day,int month, int year){
-    time_t t = time(0);
-    curtime =*(localtime(&t));
     curtime.tm_mday=day;
     curtime.tm_mon=month-1;
     curtime.tm_year=year-1900;
-    t = mktime(&curtime);
+    curtime.tm_sec = 0;
+    curtime.tm_min = 0;
+    curtime.tm_hour = 0;
+    time_t t = mktime(&curtime);
+    curtime = *(localtime(&t));
 }
 
 DateTime::DateTime(){
@@ -19,9 +28,7 @@ DateTime::DateTime(){
 }
 
 DateTime::DateTime(DateTime &date) {
-    curtime.tm_mday = date.curtime.tm_mday;
-    curtime.tm_mon = date.curtime.tm_mon;
-    curtime.tm_year = date.curtime.tm_year;
+    curtime = date.curtime;
 }
 
 string DateTime::getToday(){

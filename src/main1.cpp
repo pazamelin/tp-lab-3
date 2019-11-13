@@ -4,7 +4,7 @@
 using namespace std;
 
 int main(){
-    Circle cir(0.0);
+    Circle cir;
     cout<<cir.getArea()<<" "<<cir.getFerence()<<'\n';
 
     cout<<calcDelta()<<'\n';

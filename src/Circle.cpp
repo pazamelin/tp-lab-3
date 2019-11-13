@@ -7,7 +7,7 @@
 
 static double pi = acos(-1);
 
-Circle::Circle(double r){
+Circle::Circle(double r ){
     setRadius(r);
 }
 
@@ -25,14 +25,14 @@ void Circle::setArea(double a){
     setRadius(sqrt(a/pi));
 }
 
-double Circle::getRadius(){
+double Circle::getRadius() const {
     return radius;
 }
 
-double Circle::getFerence(){
+double Circle::getFerence()const{
     return ference;
 }
 
-double Circle::getArea(){
+double Circle::getArea()const{
     return area;
 }

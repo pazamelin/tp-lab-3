@@ -14,5 +14,7 @@ int main(){
     cout<<temp.getFuture(2)<<'\n';
     DateTime t(1,1,2019);
     cout<<temp.getDifference(t)<<'\n';
+    DateTime dt(1,11,2018);
+    cout<<dt.getToday()<<'\n';
     return 0;
 }

@@ -8,16 +8,16 @@
 
 class Circle {
 
-double radius, ference, area;
+double radius{}, ference{}, area{};
 
 public:
-    Circle(double r);
+    Circle(double r = 0);
     void setRadius(double r);
     void setFerence(double f);
     void setArea(double a);
-    double getRadius();
-    double getFerence();
-    double getArea();
+    double getRadius()const;
+    double getFerence()const;
+    double getArea()const;
 };
 
 
