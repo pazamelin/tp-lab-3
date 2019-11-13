@@ -1,7 +1,7 @@
 #include "Circle.h"
 #include <cmath>
 
-const double Circle::p = 3.1415;
+const double Circle::pi = 3.1415;
 Circle::Circle(double _radius)
 {
 	radius = _radius;
