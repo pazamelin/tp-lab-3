@@ -1,6 +1,7 @@
 #include "Circle.h"
 #include <cmath>
-#define pi 3.1415
+
+double Circle::p = 3.1415;
 Circle::Circle(double _radius)
 {
 	radius = _radius;
@@ -43,6 +44,5 @@ double Circle::getArea() const
 {
 	return area;
 }
-
 
 
