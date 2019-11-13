@@ -12,4 +12,5 @@ private:
 	double radius;
 	double ference;
 	double area;
+	const double p;
 };
