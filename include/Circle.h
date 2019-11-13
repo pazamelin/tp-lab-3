@@ -12,5 +12,5 @@ private:
 	double radius;
 	double ference;
 	double area;
-	static const double p;
+	static const double pi;
 };
