@@ -112,7 +112,7 @@ int DateTime::getDifference(DateTime& _date_time)
 	}	
 	return (dt2.year - dt1.year) * 365 + (365 - dt1.year) + dt2.year;	
 }
-std::string DateTime::months[] =  = { "january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december" };
+std::string DateTime::months[] = { "january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december" };
 std::string DateTime::days[] = { "sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday" };
 int DateTime::daysInMonth[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30 ,31, 30 ,31 };
 
