@@ -32,7 +32,7 @@ DateTime::DateTime()
 DateTime::DateTime(const DateTime& from)
 {
 	now = from.now;
-	t = from.t;
+	t = localtime(&now);
 }
 
 DateTime::~DateTime()
