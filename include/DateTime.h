@@ -19,6 +19,8 @@ public:
 	int32_t getDifference(DateTime &dateTime) const;
 
 private:
+	std::string formatString(int8_t day, int8_t month, int32_t year, int8_t dayOfWeek) const;
+
 	int8_t day;
 	int8_t month;
 	int32_t year;

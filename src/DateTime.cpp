@@ -2,7 +2,7 @@
 #include <ctime>
 #include "DateTime.h"
 
-std::string formatString(int8_t day, int8_t month, int32_t year, int8_t dayOfWeek)
+std::string DateTime::formatString(int8_t day, int8_t month, int32_t year, int8_t dayOfWeek) const
 {
 	std::string result = "";
 	result += (day >= 10 ? std::to_string(day) : "0" + std::to_string(day)) + " ";
