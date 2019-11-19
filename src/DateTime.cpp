@@ -2,12 +2,11 @@
 #include <ctime>
 #include "DateTime.h"
 
-std::string formatString(tm localTime)
+std::string formatString(int8_t day, int8_t month, int32_t year, int8_t dayOfWeek)
 {
 	std::string result = "";
-	result += localTime.tm_mday >= 10 ? std::to_string(localTime.tm_mday) : "0" + std::to_string(localTime.tm_mday);
-	result += " ";
-	switch (localTime.tm_mon + 1)
+	result += (day >= 10 ? std::to_string(day) : "0" + std::to_string(day)) + " ";
+	switch (month)
 	{
 		case 1:		result += "january";	break;
 		case 2:		result += "february";	break;
@@ -24,9 +23,9 @@ std::string formatString(tm localTime)
 		default:							break;
 	}
 	result += " ";
-	result += std::to_string(localTime.tm_year + 1900);
+	result += std::to_string(year);
 	result += ", ";
-	switch (localTime.tm_wday + 1)
+	switch (dayOfWeek)
 	{
 		case 1:	result += "sunday";		break;
 		case 2:	result += "monday";		break;
@@ -66,7 +65,7 @@ std::string DateTime::getToday() const
 	time_t currentTime = mktime(&localTime);
 	tm *tmpLocalTime = localtime(&currentTime);
 	localTime = *tmpLocalTime;
-	return formatString(localTime);
+	return formatString(localTime.tm_mday, localTime.tm_mon + 1, localTime.tm_year + 1900, localTime.tm_wday + 1);
 };
 std::string DateTime::getYesterday() const
 {
@@ -74,7 +73,7 @@ std::string DateTime::getYesterday() const
 	time_t currentTime = mktime(&localTime);
 	tm *tmpLocalTime = localtime(&currentTime);
 	localTime = *tmpLocalTime;
-	return formatString(localTime);
+	return formatString(localTime.tm_mday, localTime.tm_mon + 1, localTime.tm_year + 1900, localTime.tm_wday + 1);
 };
 std::string DateTime::getTomorrow() const
 {
@@ -82,7 +81,7 @@ std::string DateTime::getTomorrow() const
 	time_t currentTime = mktime(&localTime);
 	tm *tmpLocalTime = localtime(&currentTime);
 	localTime = *tmpLocalTime;
-	return formatString(localTime);
+	return formatString(localTime.tm_mday, localTime.tm_mon + 1, localTime.tm_year + 1900, localTime.tm_wday + 1);
 };
 std::string DateTime::getFuture(uint32_t n) const
 {
@@ -90,7 +89,7 @@ std::string DateTime::getFuture(uint32_t n) const
 	time_t currentTime = mktime(&localTime);
 	tm *tmpLocalTime = localtime(&currentTime);
 	localTime = *tmpLocalTime;
-	return formatString(localTime);
+	return formatString(localTime.tm_mday, localTime.tm_mon + 1, localTime.tm_year + 1900, localTime.tm_wday + 1);
 };
 std::string DateTime::getPast(uint32_t n) const
 {
@@ -98,7 +97,7 @@ std::string DateTime::getPast(uint32_t n) const
 	time_t currentTime = mktime(&localTime);
 	tm *tmpLocalTime = localtime(&currentTime);
 	localTime = *tmpLocalTime;
-	return formatString(localTime);
+	return formatString(localTime.tm_mday, localTime.tm_mon + 1, localTime.tm_year + 1900, localTime.tm_wday + 1);
 };
 int32_t DateTime::getDifference(DateTime &dateTime) const
 {
