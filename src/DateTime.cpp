@@ -94,18 +94,16 @@ int32_t DateTime::getDifference(DateTime &dateTime) const
 {
 	tm localTime = { 0, 0, 0, this->day, this->month - 1, this->year - 1900, 0, 0, 0 };
 	tm localTimeToSubtract = { 0, 0, 0, dateTime.day, dateTime.month - 1, dateTime.year - 1900, 0, 0, 0 };
-	int days = 0;
-	if (mktime(&localTime) > mktime(&localTimeToSubtract))
+	time_t seconds = mktime(&localTime) - mktime(&localTimeToSubtract);
+	if (seconds >= 0)
 	{
-		time_t difference = mktime(&localTime) - mktime(&localTimeToSubtract);
-		tm *difference2 = localtime(&difference);
-		days = difference2->tm_yday;
+		tm *difference = localtime(&seconds);
+		return difference->tm_yday;
 	}
 	else
 	{
-		time_t difference = mktime(&localTimeToSubtract) - mktime(&localTime);
-		tm *difference2 = localtime(&difference);
-		days = difference2->tm_yday;
+		seconds *= -1;
+		tm *difference = localtime(&seconds);
+		return -difference->tm_yday;
 	}
-	return days;
 };
