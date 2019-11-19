@@ -20,6 +20,7 @@ public:
 
 private:
 	std::string formatString(int8_t day, int8_t month, int32_t year, int8_t dayOfWeek) const;
+	tm getLocalTime(int8_t day, int8_t month, int32_t year) const;
 
 	static std::string months[12];
 	static std::string daysOfWeek[7];
