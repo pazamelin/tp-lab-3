@@ -8,11 +8,11 @@ class Circle
 public:
 	Circle(double radius);
 
-	double getRadius();
+	double getRadius() const;
 	void setRadius(double radius);
-	double getFerence();
+	double getFerence() const;
 	void setFerence(double ference);
-	double getArea();
+	double getArea() const;
 	void setArea(double area);
 
 private:

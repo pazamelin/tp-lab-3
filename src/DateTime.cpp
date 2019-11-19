@@ -45,7 +45,7 @@ DateTime::DateTime(int day, int month, int year)
 	this->month = (int8_t)month;
 	this->year = year;
 };
-DateTime::DateTime(DateTime &dateTime)
+DateTime::DateTime(const DateTime &dateTime)
 {
 	this->day = dateTime.day;
 	this->month = dateTime.month;
@@ -60,7 +60,7 @@ DateTime::DateTime()
 	this->year = 1900 + localTime->tm_year;
 };
 
-std::string DateTime::getToday()
+std::string DateTime::getToday() const
 {
 	tm localTime = { 0, 0, 0, this->day, this->month - 1, this->year - 1900, 0, 0, 0 };
 	time_t currentTime = mktime(&localTime);
@@ -68,7 +68,7 @@ std::string DateTime::getToday()
 	localTime = *tmpLocalTime;
 	return formatString(localTime);
 };
-std::string DateTime::getYesterday()
+std::string DateTime::getYesterday() const
 {
 	tm localTime = { 0, 0, 0, this->day - 1, this->month - 1, this->year - 1900, 0, 0, 0 };
 	time_t currentTime = mktime(&localTime);
@@ -76,7 +76,7 @@ std::string DateTime::getYesterday()
 	localTime = *tmpLocalTime;
 	return formatString(localTime);
 };
-std::string DateTime::getTomorrow()
+std::string DateTime::getTomorrow() const
 {
 	tm localTime = { 0, 0, 0, this->day + 1, this->month - 1, this->year - 1900, 0, 0, 0 };
 	time_t currentTime = mktime(&localTime);
@@ -84,7 +84,7 @@ std::string DateTime::getTomorrow()
 	localTime = *tmpLocalTime;
 	return formatString(localTime);
 };
-std::string DateTime::getFuture(uint32_t n)
+std::string DateTime::getFuture(uint32_t n) const
 {
 	tm localTime = { 0, 0, 0, this->day + n, this->month - 1, this->year - 1900, 0, 0, 0 };
 	time_t currentTime = mktime(&localTime);
@@ -92,7 +92,7 @@ std::string DateTime::getFuture(uint32_t n)
 	localTime = *tmpLocalTime;
 	return formatString(localTime);
 };
-std::string DateTime::getPast(uint32_t n)
+std::string DateTime::getPast(uint32_t n) const
 {
 	tm localTime = { 0, 0, 0, this->day - n, this->month - 1, this->year - 1900, 0, 0, 0 };
 	time_t currentTime = mktime(&localTime);
@@ -100,7 +100,7 @@ std::string DateTime::getPast(uint32_t n)
 	localTime = *tmpLocalTime;
 	return formatString(localTime);
 };
-int32_t DateTime::getDifference(DateTime &dateTime)
+int32_t DateTime::getDifference(DateTime &dateTime) const
 {
 	tm localTime = { 0, 0, 0, this->day, this->month - 1, this->year - 1900, 0, 0, 0 };
 	tm localTimeToSubtract = { 0, 0, 0, dateTime.day, dateTime.month - 1, dateTime.year - 1900, 0, 0, 0 };

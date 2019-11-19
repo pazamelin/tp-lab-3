@@ -8,15 +8,16 @@ class DateTime
 {
 public:
 	DateTime(int day, int month, int year);
-	DateTime(DateTime &dateTime);
+	DateTime(const DateTime &dateTime);
 	DateTime();
 
-	std::string getToday();
-	std::string getYesterday();
-	std::string getTomorrow();
-	std::string getFuture(uint32_t n);
-	std::string getPast(uint32_t n);
-	int32_t getDifference(DateTime &dateTime);
+	std::string getToday() const;
+	std::string getYesterday() const;
+	std::string getTomorrow() const;
+	std::string getFuture(uint32_t n) const;
+	std::string getPast(uint32_t n) const;
+	int32_t getDifference(DateTime &dateTime) const;
+
 private:
 	int8_t day;
 	int8_t month;

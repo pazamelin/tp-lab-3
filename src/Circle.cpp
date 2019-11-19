@@ -8,7 +8,7 @@ Circle::Circle(double radius)
 	this->area = Pi * pow(radius, 2);
 };
 
-double Circle::getRadius()
+double Circle::getRadius() const
 {
 	return this->radius;
 };
@@ -18,7 +18,7 @@ void Circle::setRadius(double radius)
 	this->ference = 2.0 * Pi * radius;
 	this->area = Pi * pow(radius, 2.0);
 };
-double Circle::getFerence()
+double Circle::getFerence() const
 {
 	return this->ference;
 };
@@ -28,7 +28,7 @@ void Circle::setFerence(double ference)
 	this->ference = ference;
 	this->area = Pi * pow(ference / (2.0 * Pi), 2.0);
 };
-double Circle::getArea()
+double Circle::getArea() const
 {
 	return this->area;
 };
