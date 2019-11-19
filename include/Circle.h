@@ -8,7 +8,7 @@
 
 class Circle {
 
-double radius{}, ference{}, area{};
+double radius, ference, area;
 
 public:
     Circle(double r = 0);

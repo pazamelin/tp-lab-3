@@ -3,13 +3,17 @@
 //
 
 #include "DateTime.h"
-static unsigned int DAY = 24*60*60;
-static vector<string> day = {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14",
-                      "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29",
-                      "30", "31"};
-static vector<string> weekday = {"sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"};
-static vector<string> month = {"january", "february", "march", "april", "may", "june", "july", "august", "september",
-                        "october", "november", "december"};
+#include "bits/stdc++.h"
+using std::vector;
+using std::string;
+
+unsigned int DateTime::DAY = 24*60*60;
+vector<string> DateTime::day = {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14",
+                             "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29",
+                             "30", "31"};
+vector<string> DateTime::weekday = {"sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"};
+vector<string> DateTime::month = {"january", "february", "march", "april", "may", "june", "july", "august", "september",
+                               "october", "november", "december"};
 
 DateTime::DateTime(int day,int month, int year){
     curtime.tm_mday=day;
@@ -31,7 +35,7 @@ DateTime::DateTime(DateTime &date) {
     curtime = date.curtime;
 }
 
-string DateTime::getToday(){
+string DateTime::getToday() const{
     return convert(curtime);
     //return getFuture(0);
 }
@@ -63,6 +67,6 @@ int DateTime::getDifference(DateTime& date){
     return (second-first)/DAY;
 }
 
-string DateTime::convert(tm ctime){
+string DateTime::convert(tm ctime) const{
     return day[ctime.tm_mday]+" "+month[ctime.tm_mon]+" "+std::to_string(ctime.tm_year+1900)+", "+weekday[ctime.tm_wday];
 }

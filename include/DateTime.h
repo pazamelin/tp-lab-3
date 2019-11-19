@@ -11,16 +11,23 @@ using std::string;
 using std::vector;
 
 class DateTime {
+
     tm curtime;
 
+    static unsigned int DAY;
+    static vector<string> day;
+    static vector<string> weekday;
+    static vector<string> month;
+
 public:
+
     DateTime(int day, int month, int year);
 
     DateTime();
 
     DateTime(DateTime &date);
 
-    string getToday();
+    string getToday() const;
 
     string getYesterday();
 
@@ -30,9 +37,9 @@ public:
 
     string getPast(unsigned int N);
 
-    int getDifference(DateTime &);
+    int getDifference(DateTime &date);
 
-    string convert(tm ctime);
+    string convert(tm ctime) const;
 };
 
 
