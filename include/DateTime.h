@@ -21,6 +21,8 @@ public:
 private:
 	std::string formatString(int8_t day, int8_t month, int32_t year, int8_t dayOfWeek) const;
 
+	static std::string months[12];
+	static std::string daysOfWeek[7];
 	int8_t day;
 	int8_t month;
 	int32_t year;

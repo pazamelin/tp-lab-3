@@ -2,39 +2,39 @@
 #include <ctime>
 #include "DateTime.h"
 
+std::string DateTime::months[12] =
+{
+	"january",
+	"february",
+	"march",
+	"april",
+	"may",
+	"june",
+	"jule",
+	"august",
+	"september",
+	"october",
+	"november",
+	"december"
+};
+std::string DateTime::daysOfWeek[7] =
+{
+	"sunday",
+	"monday",
+	"tuesday",
+	"wednesday",
+	"thursday",
+	"friday",
+	"saturday"
+};
+
 std::string DateTime::formatString(int8_t day, int8_t month, int32_t year, int8_t dayOfWeek) const
 {
 	std::string result = "";
 	result += (day >= 10 ? std::to_string(day) : "0" + std::to_string(day)) + " ";
-	switch (month)
-	{
-		case 1:		result += "january";	break;
-		case 2:		result += "february";	break;
-		case 3:		result += "march";		break;
-		case 4:		result += "april";		break;
-		case 5:		result += "may";		break;
-		case 6:		result += "june";		break;
-		case 7:		result += "jule";		break;
-		case 8:		result += "august";		break;
-		case 9:		result += "september";	break;
-		case 10:	result += "october";	break;
-		case 11:	result += "november";	break;
-		case 12:	result += "december";	break;
-		default:							break;
-	}
-	result += " ";
-	result += std::to_string(year);
-	result += ", ";
-	switch (dayOfWeek)
-	{
-		case 1:	result += "sunday";		break;
-		case 2:	result += "monday";		break;
-		case 3:	result += "tuesday";	break;
-		case 4:	result += "wednesday";	break;
-		case 5:	result += "thursday";	break;
-		case 6:	result += "friday";		break;
-		case 7:	result += "saturday";	break;
-	}
+	result += DateTime::months[month - 1] + " ";
+	result += std::to_string(year) + ", ";
+	result += DateTime::daysOfWeek[dayOfWeek - 1];
 	return result;
 };
 
