@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/DateTime.h
+ctime
+-
+string
+-
+cmath
+-
+string.h
+-
+iostream
+-
+
+/Users/ilasolovev/Desktop/University/TOPandPO/tp-lab-3/src/DateTime.cpp
+DateTime.h
+/Users/ilasolovev/Desktop/University/TOPandPO/tp-lab-3/src/DateTime.h
+

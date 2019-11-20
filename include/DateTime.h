@@ -25,17 +25,17 @@ public:
 
     DateTime(DateTime &forCopy);
 
-    string getToday();
+    string const getToday();
 
-    string getYesterday();
+    string const getYesterday();
 
-    string getTomorrow();
+    string const getTomorrow();
 
-    string getFuture(unsigned int N);
+    string const getFuture(unsigned int N);
 
-    string getPast(unsigned int N);
+    string const getPast(unsigned int N);
 
-    int getDifference(DateTime &second);
+    int const getDifference(DateTime &second);
 
 };
 

@@ -4,6 +4,16 @@
 
 #include "DateTime.h"
 
+string convert(char str[50]) {
+    string res = string(str);
+    for (int i = 0; i < res.length(); i++) {
+        if ('A' < res[i] && res[i] < 'Z') {
+            res[i] = res[i] - ('A' - 'a');
+        }
+    }
+    return res;
+}
+
 DateTime::DateTime(int day, int mon, int year) {
     time_t seconds = time(0);
     date = *localtime(&seconds);
@@ -24,123 +34,45 @@ DateTime::DateTime(DateTime &forCopy) {
     date = forCopy.date;
 }
 
-string DateTime::getToday() {
+string const DateTime::getToday() {
     char str[50];
     strftime(str, 50, "%d %B %Y, %A", &date);
-    string res = string(str);
-    for (int i = 0; i < res.length(); i++) {
-        if ('A' < res[i] && res[i] < 'Z') {
-            res[i] = res[i] - ('A' - 'a');
-        }
-    }
-    return res;
+    return convert(str);
 }
 
-string DateTime::getYesterday() {
+string const DateTime::getYesterday() {
     char str[50];
     time_t tmp = mktime(&date) - 24 * 60 * 60;
     tm *yesterday = localtime(&tmp);
     strftime(str, 50, "%d %B %Y, %A", yesterday);
-    string res = string(str);
-    for (int i = 0; i < res.length(); i++) {
-        if ('A' < res[i] && res[i] < 'Z') {
-            res[i] = res[i] - ('A' - 'a');
-        }
-    }
-    return res;
+    return convert(str);
 }
 
-string DateTime::getTomorrow() {
+string const DateTime::getTomorrow() {
     char str[50];
     time_t tmp = mktime(&date) + 24 * 60 * 60;
     tm *tomorrow = localtime(&tmp);
     strftime(str, 50, "%d %B %Y, %A", tomorrow);
-    string res = string(str);
-    for (int i = 0; i < res.length(); i++) {
-        if ('A' < res[i] && res[i] < 'Z') {
-            res[i] = res[i] - ('A' - 'a');
-        }
-    }
-    return res;
+    return convert(str);
 }
 
-string DateTime::getFuture(unsigned int N) {
+string const DateTime::getFuture(unsigned int N) {
     char str[50];
     time_t tmp = mktime(&date) + N * 24 * 60 * 60;
     tm *future = localtime(&tmp);
     strftime(str, 50, "%d %B %Y, %A", future);
-    string res = string(str);
-    for (int i = 0; i < res.length(); i++) {
-        if ('A' < res[i] && res[i] < 'Z') {
-            res[i] = res[i] - ('A' - 'a');
-        }
-    }
-    return res;
+    return convert(str);
 }
 
-string DateTime::getPast(unsigned int N) {
+string const DateTime::getPast(unsigned int N) {
     char str[50];
     time_t tmp = mktime(&date) - N * 24 * 60 * 60;
     tm *past = localtime(&tmp);
     strftime(str, 50, "%d %B %Y, %A", past);
-    string res = string(str);
-    for (int i = 0; i < res.length(); i++) {
-        if ('A' < res[i] && res[i] < 'Z') {
-            res[i] = res[i] - ('A' - 'a');
-        }
-    }
-    return res;
+    return convert(str);
 }
 
-int DateTime::getDifference(DateTime &second) {
+int const DateTime::getDifference(DateTime &second) {
     long seconds = abs(mktime(&second.date) - mktime(&this->date));
     return seconds / (24 * 60 * 60);
 }
-
-/*
-
-
-
-
-
-std::string DateTime::getToday()
-{
-    date = StringDate(time_now);
-    return date;
-}
-
-std::string DateTime::getTomorrow()
-{
-    time_now += 86400;
-    date = StringDate(time_now);
-    return date;
-}
-
-std::string DateTime::getYesterday()
-{
-    time_now -= 86400;
-    date = StringDate(time_now);
-    return date;
-}
-
-std::string DateTime::getFuture(unsigned int N)
-{
-    time_now += 86400 * N;
-    date = StringDate(time_now);
-    return date;
-}
-
-std::string DateTime::getPast(unsigned int N)
-{
-    time_now -= 86400 * N;
-    date = StringDate(time_now);
-    return date;
-}
-
-unsigned int DateTime::getDifference(DateTime &DateTime)
-{
-    unsigned int diff = (abs(DateTime.time_now - this->time_now)) / 86400;
-    return diff;
-}
-
- */
