@@ -10,7 +10,7 @@ double calcDelta()
 	Circle c2(1);
 	c2.setFerence(earth.getFerence() + 1);
 	double dif = c2.getRadius() - earth.getRadius();
-	return  dif;
+	return round(dif * 1000)/1000;
 }
 
 double calcCost()
