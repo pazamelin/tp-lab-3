@@ -4,7 +4,7 @@
 
 int main()
 {
-	DateTime d1;
+	DateTime d1(31, 12, 2019);
 	string s = d1.getToday();
 	cout <<  "Today: " << s << endl;
 	s = d1.getFuture(10);
@@ -17,7 +17,8 @@ int main()
 	cout << "Yesterday: " << s << endl; 
 
 
-	DateTime d2(26, 10, 119); //26 november(10th month from 0) 2019(1900 + 119)
+	DateTime d2(26, 11, 2019);
 	cout <<"Difference = "<< d1.getDifference(d2) << endl;
+	
 	return 0;
 }
