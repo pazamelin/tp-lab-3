@@ -35,6 +35,7 @@ string DateTime::getToday()
 {
 	string today = "";
 	
+	mktime(&date);
 	if (date.tm_mday < 10)
 		today += "0";
 	today += to_string(date.tm_mday) + " " + m[date.tm_mon] + " " + to_string(date.tm_year + 1900) + ", " + d[date.tm_wday];
