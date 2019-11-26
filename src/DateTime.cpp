@@ -56,10 +56,9 @@ std::string DateTime::getYesterday() {
 	time_t ltime;
 	time(&ltime);
 	t = localtime(&ltime);
-	t->tm_mday = day;
+	t->tm_mday = day-1;
 	t->tm_mon = mon;
 	t->tm_year = year-1900;
-	t->tm_mday -= 1;
 	mktime(t);
 	return mkString(t);
 }
@@ -69,10 +68,9 @@ std::string DateTime::getTomorrow() {
 	time_t ltime;
 	time(&ltime);
 	t = localtime(&ltime);
-	t->tm_mday = day;
+	t->tm_mday = day+1;
 	t->tm_mon = mon;
 	t->tm_year = year - 1900;
-	t->tm_mday += 1;
 	mktime(t);
 	return mkString(t);
 }
@@ -105,7 +103,6 @@ int DateTime::getDifference(DateTime& anotherday) {
 
 	tm a = { 0,0,0,day,mon,year-1900 };
 	tm b = { 0,0,0,anotherday.day,anotherday.mon,anotherday.year-1900}; 
-	//tm b = { 0,0,0,3,11,2018-1900};
 	time_t x = mktime(&a);
 	time_t y = mktime(&b);
     int difference = difftime(y, x) / (60 * 60 * 24);	

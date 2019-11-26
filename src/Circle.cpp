@@ -15,25 +15,22 @@ double Circle::getArea() {
 	return area;
 }
 
-double  Circle::setRadius(double _radius) {
+void  Circle::setRadius(double _radius) {
 	radius = _radius;
 	ference = _radius*2*PI;
 	area = _radius* _radius*PI;
-	return 0;
 }
 
-double  Circle::setFerence(double _ference) {
+void  Circle::setFerence(double _ference) {
 	ference = _ference;
 	radius = _ference/(2*PI);
 	area = radius * radius * PI;
-	return 0;
 }
 
-double  Circle::setArea(double _area){
+void  Circle::setArea(double _area){
 	area = _area;
 	radius = sqrt(_area/PI);
 	ference = radius * 2 * PI;
-	return 0;
 }
 
 Circle::Circle(double _radius) {
