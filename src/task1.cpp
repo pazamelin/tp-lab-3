@@ -2,20 +2,16 @@
 #include "Circle.h"
 
 double calcDelta() {
-	Circle* earth = new Circle();
-	earth->setRadius(6378100.0);
-	Circle* tipe = new Circle();
-	tipe->setFerence(earth->getFerence() + 1);
-	double diff = tipe->getRadius() - earth->getRadius();
-	diff = diff - (int)(diff * 1000);
-	return diff;
+	Circle earth = Circle();
+	earth.setRadius(6378.1);
+	Circle tipe = Circle();
+	tipe.setFerence(earth.getFerence() + 0.001);
+	double diff = (tipe.getRadius() - earth.getRadius())*1000;
+	return int(diff*1000.0)/1000.0;
 }
 
 double calcCost() {
-	Circle* pool = new Circle();
-	Circle* track = new Circle();
-	pool->setRadius(3);
-	track->setRadius(4);
-	double cost = ((track->getArea() - pool->getArea()) * 1000) + (pool->getFerence() * 2000);
-	return cost;
+	Circle pool = Circle(3);
+	Circle fence = Circle(4);
+	return ((fence.getArea() - pool.getArea()) * 1000 + (fence.getFerence() * 2000));
 }

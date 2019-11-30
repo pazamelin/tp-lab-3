@@ -1,6 +1,6 @@
 #include "Circle.h"
 #include <math.h>
-#define M_PI 3.14
+#define M_PI 3.1415
 
 Circle::Circle(double radius) {
 	setRadius(radius);

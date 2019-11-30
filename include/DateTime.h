@@ -9,7 +9,7 @@ public:
 
 	DateTime(int D, int M, int Y);
 	DateTime();
-	DateTime(const DateTime&);
+	DateTime(DateTime&);
 
 	~DateTime();
 
@@ -26,10 +26,10 @@ public:
 
 private:
 
-	std::string tmToStr(tm* time);
+	std::string timeToStr(tm* time);
 
-	time_t now; 
-	tm* t;
+	time_t time_seconds; 
+	tm* time_structure;
 
 	std::string days[7] = { "sunday\0", 
 								  "monday\0", 

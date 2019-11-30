@@ -5,27 +5,27 @@
 
 DateTime::DateTime(int D, int M, int Y)
 {
-	time(&now);  
-	t = localtime(&now);  
+	time(&time_seconds);  
+	time_structure = localtime(&time_seconds);  
 
-	t->tm_year = Y - 1900;
-	t->tm_mon = M - 1;
-	t->tm_mday = D;
+	time_structure->tm_year = Y - 1900;
+	time_structure->tm_mon = M - 1;
+	time_structure->tm_mday = D;
 
-	//now = mktime(t);  
-	//t = localtime(&now);
+	time_seconds = mktime(time_structure);
+	time_structure = localtime(&time_seconds);
 }
 
 DateTime::DateTime()
 {
-	time(&now);
-	t = localtime(&now);
+	time(&time_seconds);
+	time_structure = localtime(&time_seconds);
 }
 
 DateTime::DateTime(DateTime& from)
 {
-	now = from.now;
-	t = localtime(&now);
+	time_seconds = from.time_seconds;
+	time_structure = localtime(&time_seconds);
 }
 
 DateTime::~DateTime()
@@ -34,40 +34,40 @@ DateTime::~DateTime()
 
 std::string DateTime::getToday()
 {
-	return timeToStr(t);
+	return timeToStr(time_structure);
 }
 
 std::string DateTime::getYesterday()
 {
-	time_t temp = now - 24 * 3600;
+	time_t temp = time_seconds - 24 * 3600;
 	tm* yesterday = localtime(&temp);
 	return timeToStr(yesterday);
 }
 
 std::string DateTime::getTomorrow()
 {
-	time_t temp = now + 24 * 3600;
+	time_t temp = time_seconds + 24 * 3600;
 	tm* tomorrow = localtime(&temp);
 	return timeToStr(tomorrow);
 }
 
 std::string DateTime::getFuture(unsigned int N)
 {
-	time_t tmp = now + N * 24 * 3600;
-	tm* future = localtime(&tmp);
+	time_t temp = time_seconds + N * 24 * 3600;
+	tm* future = localtime(&temp);
 	return timeToStr(future);
 }
 
 std::string DateTime::getPast(unsigned int N)
 {
-	time_t tmp = now - N * 24 * 3600;
-	tm* past = localtime(&tmp);
+	time_t temp = time_seconds - N * 24 * 3600;
+	tm* past = localtime(&temp);
 	return timeToStr(past);
 }
 
 int DateTime::getDifference(DateTime& ref)
 {
-	unsigned long long diff = abs(ref.now - now);
+	unsigned long long diff = abs(ref.time_seconds - time_seconds);
 	return diff / (3600 * 24);
 }
 
