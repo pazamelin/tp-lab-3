@@ -2,7 +2,7 @@
 #include <iostream>
 #include "DateTime.h"
 using namespace std;
-int main3() {
+int main() {
 	DateTime cur, newdate(21, 11, 2018);
 	cout << "Today:   \t" << cur.getToday() << endl;
 	cout << "Yesterday: \t" << cur.getYesterday() << endl;
