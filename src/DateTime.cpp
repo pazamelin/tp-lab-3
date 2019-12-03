@@ -1,6 +1,6 @@
 #include "DateTime.h"
 
- string  DateTime::getToday() // возвращение текущей даты в виде строки, с указанием дня недели и названия месяца(например 07 november 2018, wedensday);
+ string  DateTime::getToday() // РІРѕР·РІСЂР°С‰РµРЅРёРµ С‚РµРєСѓС‰РµР№ РґР°С‚С‹ РІ РІРёРґРµ СЃС‚СЂРѕРєРё, СЃ СѓРєР°Р·Р°РЅРёРµРј РґРЅСЏ РЅРµРґРµР»Рё Рё РЅР°Р·РІР°РЅРёСЏ РјРµСЃСЏС†Р°(РЅР°РїСЂРёРјРµСЂ 07 november 2018, wedensday);
 {
 	 string answ = retDate(timeStruct);
 	 return answ;
@@ -59,7 +59,7 @@
 	 return answ;
  }
 
- string DateTime::getFuture(unsigned int N) // -возвращение даты через N дней в будущем;
+ string DateTime::getFuture(unsigned int N) // -РІРѕР·РІСЂР°С‰РµРЅРёРµ РґР°С‚С‹ С‡РµСЂРµР· N РґРЅРµР№ РІ Р±СѓРґСѓС‰РµРј;
  {
 	 int mdays = daysInMon(timeStruct.tm_mon, visYear(timeStruct.tm_year + 1900));
 	 tm curDay = timeStruct;

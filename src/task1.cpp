@@ -6,7 +6,6 @@ using namespace std;
 double calcDelta()
 {
 	Circle earth(6378.1 * 1000);
-	cout << "task 1:" << endl;
 	Circle c2(1);
 	c2.setFerence(earth.getFerence() + 1);
 	double dif = c2.getRadius() - earth.getRadius();
@@ -15,9 +14,9 @@ double calcDelta()
 
 double calcCost()
 {
-	Circle swimp(3);
-	Circle swimparea(swimp.getRadius() + 1);
-	double costfloor = 1000 * (swimparea.getArea() - swimp.getArea());
-	double costfence = 2000 * swimparea.getFerence();
-	return costfence + costfloor;
+	Circle swimp(3000);
+	Circle swimparea(4000);
+	double costfloor = 0.001 * (swimparea.getArea() - swimp.getArea());
+	double costfence = 2.0 * swimparea.getFerence();
+	return costfloor + costfence ;
 }
