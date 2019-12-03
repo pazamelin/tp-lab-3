@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/Circle.h
+iostream
+-
+math.h
+-
+
+../include/DateTime.h
+ctime
+-
+string
+-
+cmath
+-
+string.h
+-
+iostream
+-
+
+/Users/ilasolovev/Desktop/University/TOPandPO/tp-lab-3/src/main3.cpp
+iostream
+-
+math.h
+-
+Circle.h
+/Users/ilasolovev/Desktop/University/TOPandPO/tp-lab-3/src/Circle.h
+DateTime.h
+/Users/ilasolovev/Desktop/University/TOPandPO/tp-lab-3/src/DateTime.h
+unistd.h
+-
+unistd.h
+-
+
