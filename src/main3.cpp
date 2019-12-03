@@ -2,8 +2,8 @@
 #include <iostream>
 #include "DateTime.h"
 using namespace std;
-int main() {
-	DateTime cur, newdate(29, 12, 2019);
+int main3() {
+	DateTime cur, newdate(21, 11, 2018);
 	cout << "Today:   \t" << cur.getToday() << endl;
 	cout << "Yesterday: \t" << cur.getYesterday() << endl;
 	cout << "Tommorow \t" << cur.getTomorrow() << endl;

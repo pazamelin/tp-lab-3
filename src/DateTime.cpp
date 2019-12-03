@@ -12,7 +12,6 @@ DateTime::DateTime(int day, int month, int year) {
 	date.tm_mon = month - 1;
 	date.tm_year = year - 1900;
 	mktime(&date);
-	
 }
 DateTime::DateTime() {
 	time_t s_time = time(NULL);
@@ -22,7 +21,14 @@ DateTime::DateTime(DateTime &buf) {
 	this->date = buf.date;
 }
 std::string DateToString(tm date) {
-	std::string str = std::to_string(date.tm_mday) + " " + months[date.tm_mon] + " " + std::to_string(date.tm_year + 1900) + ", " + week[date.tm_wday];
+	std::string str;
+	if (date.tm_mday < 10) {
+		str = "0";
+	}
+	else {
+		str = "";
+	}
+	str	+= std::to_string(date.tm_mday) + " " + months[date.tm_mon] + " " + std::to_string(date.tm_year + 1900) + ", " + week[date.tm_wday];
 	return str;
 	//(07 november 2018, wedensday);
 }
@@ -31,28 +37,28 @@ std::string DateTime::getToday() {
 }
 std::string DateTime::getYesterday() {
 	tm yesterday;
-	time_t s_time = time(NULL);
+	time_t s_time = mktime(&date);
 	s_time -= 3600 * 24;
 	yesterday = *(localtime(&s_time));
 	return DateToString(yesterday);
 }
 std::string DateTime::getTomorrow() {
 	tm yesterday;
-	time_t s_time = time(NULL);
+	time_t s_time = mktime(&date);
 	s_time += 3600 * 24;
 	yesterday = *(localtime(&s_time));
 	return DateToString(yesterday);
 }
 std::string DateTime::getFuture(unsigned int N) {
 	tm yesterday;
-	time_t s_time = time(NULL);
+	time_t s_time = mktime(&date);
 	s_time += 3600 * 24 * N;
 	yesterday = *(localtime(&s_time));
 	return DateToString(yesterday);
 }
 std::string DateTime::getPast(unsigned int N) {
 	tm yesterday;
-	time_t s_time = time(NULL);
+	time_t s_time = mktime(&date);
 	s_time -= 3600 * 24 * N;
 	yesterday = *(localtime(&s_time));
 	return DateToString(yesterday);
