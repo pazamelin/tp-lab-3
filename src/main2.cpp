@@ -4,7 +4,5 @@
 
 int main()
 {
-	std::cout << calcCost() << "\n";
-
-	return 0;
+	std::cout << calcCost();
 }
