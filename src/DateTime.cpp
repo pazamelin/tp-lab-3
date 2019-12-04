@@ -1,4 +1,5 @@
 #include "DateTime.h"
+#include <stdlib.h>
 
  string  DateTime::getToday() // возвращение текущей даты в виде строки, с указанием дня недели и названия месяца(например 07 november 2018, wedensday);
 {
@@ -135,106 +136,9 @@
 
  int DateTime::getDifference(DateTime& dt2)
  {
-	 int diff = 0;
-	 tm cur = retTM(dt2);
-	 while (abs(cur.tm_year - timeStruct.tm_year) > 1)
-		 {
-			 diff += 365;
-			 if (visYear(cur.tm_year + 1900))
-			 {
-				 diff++;
-			 }
-			 if (cur.tm_year > timeStruct.tm_year)
-			 {
-				 cur.tm_year--;
-			 }
-			 else
-			 {
-				 cur.tm_year++;
-			 }
-		 }
-
-	 bool rost = false;
-	 if (cur.tm_year <= timeStruct.tm_year)
-	 {
-		 if (cur.tm_year == timeStruct.tm_year)
-		 {
-			 if (cur.tm_mon <= timeStruct.tm_mon)
-			 {
-				 if (cur.tm_mon == timeStruct.tm_mon)
-				 {
-					 if (cur.tm_mday < timeStruct.tm_mday)
-					 {
-						 rost = true;
-					 }
-				 }
-				 else
-				 {
-					 rost = true;
-				 }
-			 }
-		 }
-		 else
-		 {
-			 rost = true;
-		 }
-
-	 }
-
-		 if (rost)
-		 {
-			 int mdays = daysInMon(cur.tm_mon, visYear(cur.tm_year + 1900));
-			 while (!sameDate(cur))
-			 {
-				 diff++;
-					 if (cur.tm_mday < mdays)
-					 {
-						 cur.tm_mday++;
-					 }
-					 else
-					 {
-						 cur.tm_mday = 1;
-						 if (cur.tm_mon < 11)
-						 {
-							 cur.tm_mon++;
-
-						 }
-						 else
-						 {
-							 cur.tm_mon = 0;
-							 cur.tm_year++;
-						 }
-						 mdays = daysInMon(cur.tm_mon, visYear(cur.tm_year + 1900));
-					 }
-			 }
-		 }
-		 else
-		 {
-			 while (!sameDate(cur))
-			 {
-				 diff++;
-				 if (cur.tm_mday > 1)
-				 {
-					 cur.tm_mday--;
-				 }
-				 else
-				 {
-					 if (cur.tm_mon > 0)
-					 {
-						 cur.tm_mon--;
-					 }
-					 else
-					 {
-						 cur.tm_year--;
-						 cur.tm_mon = 11;
-					 }
-					 cur.tm_mday = daysInMon(cur.tm_mon, visYear(cur.tm_year + 1900));
-				 }
-
-			 }
-		 }
-	 
-		 return diff;
+	tm t1 = timeStruct;
+	 tm t2 = dt2.timeStruct; //retTM(dt2);
+	 return (abs(difftime(mktime(&t1), mktime(&t2)))) / 86400;
  }
 
  bool DateTime::sameDate(tm date2)
