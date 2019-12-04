@@ -65,19 +65,19 @@ std::string DateTime::getPast(unsigned int N)
 	return timeToStr(past);
 }
 
-int DateTime::getDifference(DateTime& ref)
+int DateTime::getDifference(DateTime& target)
 {
-	unsigned long long diff = abs(ref.time_seconds - time_seconds);
+	unsigned long long diff = abs(target.time_seconds - time_seconds);
 	return diff / (3600 * 24);
 }
 
 std::string DateTime::timeToStr(tm* time)
 {
-	std::string s;
+	std::string result;
 	if (time->tm_mday < 10)
 	{
-		s += "0";
+		result += "0";
 	}
-	s += std::to_string(time->tm_mday) + " " + months[time->tm_mon] + " " + std::to_string(time->tm_year + 1900) + ", " + days[time->tm_wday];
-	return s;
+	result += std::to_string(time->tm_mday) + " " + months[time->tm_mon] + " " + std::to_string(time->tm_year + 1900) + ", " + days[time->tm_wday];
+	return result;
 }
