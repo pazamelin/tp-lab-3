@@ -3,14 +3,14 @@
 #include <stdio.h>
 
 
-DateTime::DateTime(int D, int M, int Y)
+DateTime::DateTime(int day, int month, int year)
 {
 	time(&time_seconds);  
 	time_structure = localtime(&time_seconds);  
 
-	time_structure->tm_year = Y - 1900;
-	time_structure->tm_mon = M - 1;
-	time_structure->tm_mday = D;
+	time_structure->tm_year = year - 1900;
+	time_structure->tm_mon = month - 1;
+	time_structure->tm_mday = day;
 
 	time_seconds = mktime(time_structure);
 	time_structure = localtime(&time_seconds);
