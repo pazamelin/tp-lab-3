@@ -3,8 +3,5 @@
 
 int main()
 {
-
-	std::cout << calcDelta() << "\n";
-
-	return 0;
+	std::cout << calcDelta();
 }
