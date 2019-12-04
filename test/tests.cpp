@@ -23,7 +23,7 @@ TEST(circle,circle_get_area2)
 TEST(circle,circle_get_ference2)
 {
     Circle c(10.0);
-    EXPECT_DOUBLE_EQ(62.831899999999997,c.getFerence());
+    EXPECT_DOUBLE_EQ(62.83184,c.getFerence());
 }
 TEST(date,datetime_gettomorrow1)
 {
