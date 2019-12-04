@@ -7,7 +7,7 @@ class DateTime
 {
 public:
 
-	DateTime(int D, int M, int Y);
+	DateTime(int day, int month, int year);
 	DateTime();
 	DateTime(DateTime&);
 
