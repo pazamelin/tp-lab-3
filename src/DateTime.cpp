@@ -1,5 +1,5 @@
 #include "DateTime.h"
-#include <stdlib.h>
+#include <math.h>
 
  string  DateTime::getToday() // возвращение текущей даты в виде строки, с указанием дня недели и названия месяца(например 07 november 2018, wedensday);
 {
