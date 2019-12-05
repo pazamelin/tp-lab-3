@@ -1,5 +1,4 @@
 #include "DateTime.h"
-#include <math.h>
 
  string  DateTime::getToday() // возвращение текущей даты в виде строки, с указанием дня недели и названия месяца(например 07 november 2018, wedensday);
 {
@@ -138,7 +137,7 @@
  {
 	tm t1 = timeStruct;
 	 tm t2 = dt2.timeStruct;
-	 int diff =  (abs(difftime(mktime(&t1), mktime(&t2)))) / 86400;
+	 int diff =  (abs((double)difftime(mktime(&t1), mktime(&t2)))) / 86400;
 	 return diff;
  }
 
