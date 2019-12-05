@@ -137,8 +137,9 @@
  int DateTime::getDifference(DateTime& dt2)
  {
 	tm t1 = timeStruct;
-	 tm t2 = dt2.timeStruct; //retTM(dt2);
-	 return (abs(difftime(mktime(&t1), mktime(&t2)))) / 86400;
+	 tm t2 = dt2.timeStruct;
+	 int diff =  (abs(difftime(mktime(&t1), mktime(&t2)))) / 86400;
+	 return diff;
  }
 
  bool DateTime::sameDate(tm date2)
