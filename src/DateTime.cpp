@@ -135,9 +135,10 @@
 
  int DateTime::getDifference(DateTime& dt2)
  {
-	tm t1 = timeStruct;
+	 tm t1 = timeStruct;
 	 tm t2 = dt2.timeStruct;
-	 int diff =  (abs((double)difftime(mktime(&t1), mktime(&t2)))) / 86400;
+	 int diff = difftime(mktime(&t1), mktime(&t2)) / 86400;
+	 diff = abs(diff);
 	 return diff;
  }
 
