@@ -17,6 +17,7 @@ DateTime::DateTime(int day, int month, int year){
 	date->tm_mday = day;
 	date->tm_mon = month - 1;
 	date->tm_year = year - 1900;
+	now = mktime(date);
 	mktime( date );
 }
 
@@ -50,14 +51,14 @@ string DateTime::getToday() {
 string DateTime::getPast(unsigned int N){
 	string past = "";
 	int day = date->tm_mday - N;
-	int month = date->tm_mon-1;
+	int month = date->tm_mon;
 	int year = date->tm_year;
 
 	if (day < 0) {
-		date += countDays[month - 1];
+		day += countDays[month - 1];
 		month--;
 		if (month < 0) {
-			month = 12 + month;
+			month = 11 + month;
 			year--;
 		}
 	}
@@ -73,11 +74,11 @@ string DateTime::getPast(unsigned int N){
 string DateTime::getFuture(unsigned int N) {
 	string past = "";
 	int day = date->tm_mday + N;
-	int month = date->tm_mon-1;
+	int month = date->tm_mon;
 	int year = date->tm_year;
 
 	if (day > countDays[month]){
-		date -= countDays[month];
+		day -= countDays[month];
 		month++;
 		if (month > 11) {
 			month = month - 11;
@@ -103,8 +104,9 @@ string DateTime::getYesterday()
 	return getPast(1);
 }
 
-unsigned int DateTime::getDifference(DateTime& target) {
-
-	time_t targetTime = target.now;
+int DateTime::getDifference(DateTime& newdate)
+{
+	time_t targetTime = newdate.now;
 	return abs(targetTime - now) / (24 * 60 * 60);
+
 }

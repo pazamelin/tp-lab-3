@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-	DateTime date1{ 8,5,2000};
+	DateTime date1{8,5,2000};
 	DateTime date2{};
 	cout << date1.getToday() << endl; 
 	cout << date1.getFuture(10) << endl; 

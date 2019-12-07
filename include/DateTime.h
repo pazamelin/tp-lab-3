@@ -22,6 +22,7 @@ class DateTime
 		string getTomorrow();
 		string getFuture(unsigned int N);
 		string getPast(unsigned int N);
-		unsigned int getDifference(DateTime&);
+		int getDifference(DateTime&);
+
 };
 #endif
