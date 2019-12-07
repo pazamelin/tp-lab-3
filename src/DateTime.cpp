@@ -73,7 +73,7 @@ string DateTime::getPast(unsigned int N){
 string DateTime::getFuture(unsigned int N) {
 	string past = "";
 	int day = date->tm_mday + N;
-	int month = date->tm_mon;
+	int month = date->tm_mon-1;
 	int year = date->tm_year;
 
 	if (day > countDays[month]){
@@ -103,7 +103,8 @@ string DateTime::getYesterday()
 	return getPast(1);
 }
 
-unsigned int DateTime::getDifference(DateTime& object) {
-    time_t figure = object.now;
-	return abs(figure - now) / (24 * 60 * 60);
+unsigned int DateTime::getDifference(DateTime& target) {
+
+	time_t targetTime = target.now;
+	return abs(targetTime - now) / (24 * 60 * 60);
 }
