@@ -3,7 +3,7 @@
 //
 #include <cmath>
 #include "Circle.h"
-#define pi 3.14
+#define pi acos(-1)
 
 Circle::Circle(double new_radius) {
     this->setRadius(new_radius);
@@ -23,7 +23,7 @@ void Circle::setFerence(double new_ference) {
 
 void Circle::setArea(double new_area) {
     area = new_area;
-    radius = sqrt(area / 2);
+    radius = sqrt(area / pi);
     ference = 2 * pi * radius;
 }
 
