@@ -1,3 +1,3 @@
 #pragma once
-void calcDelta();
-void calcCost();
+double calcDelta();
+double calcCost();
