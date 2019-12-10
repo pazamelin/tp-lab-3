@@ -10,6 +10,6 @@ int main(){
     double delta=calcDelta();
     cout<<"The gap between Earth and the rope is "<<delta<<" meters \n";
     double cost=calcCost();
-    cout<<"Full cost is "<<cost<<" roubles ";
+    cout<<"Full cost is "<<cost<<" roubles "<<"\n";
     return 0;
 }
