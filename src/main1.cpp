@@ -1,8 +1,9 @@
-/*#include "task1.h"
+#include "task1.h"
+#include <iostream>
 
 using namespace std;
 
 int main()
 {
-	cout << pool_cost();
-}*/
+	cout << calcCost();
+}
