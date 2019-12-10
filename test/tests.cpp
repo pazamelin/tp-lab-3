@@ -63,5 +63,5 @@ TEST(calc,delta)
 }
 TEST(calc,pool_cost)
 {    
-    EXPECT_DOUBLE_EQ(72256.6,calcCost());
+    EXPECT_DOUBLE_EQ(72256.631032565245,calcCost());
 }
