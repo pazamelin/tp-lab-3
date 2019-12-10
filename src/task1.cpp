@@ -12,5 +12,5 @@ double calcDelta()
 double calcCost()
 {
 	Circle pool(3), road(4);
-	return floor((pool.getArea() * 1000 + (road.getArea() - pool.getArea()) * 2000)*100)/100;
+	return pool.getArea() * 1000 + (road.getArea() - pool.getArea()) * 2000;
 }
