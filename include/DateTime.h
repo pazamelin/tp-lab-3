@@ -1,6 +1,10 @@
 #ifndef _COUNTER_H
 #define _COUNTER_H_
 
+#include <time.h>
+#include <string>
+#include <math.h>
+
 class DateTime{
     private:
         int day;
