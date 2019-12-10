@@ -18,29 +18,29 @@ TEST(circle,circle_get_ference1)
 TEST(circle,circle_get_area2)
 {
     Circle c(10.0);
-    EXPECT_DOUBLE_EQ(314.0,c.getArea());
+    EXPECT_DOUBLE_EQ(314.15926535897933,c.getArea());
 }
 TEST(circle,circle_get_ference2)
 {
     Circle c(10.0);
-    EXPECT_DOUBLE_EQ(62.8,c.getFerence());
+    EXPECT_DOUBLE_EQ(62.831853071795862,c.getFerence());
 }
 TEST(date,datetime_gettomorrow1)
 {
     DateTime dt(31,10,2018);
-    std::string expect="01 november 2018, thursday";
+    std::string expect="01 november 2018, Thursday";
     EXPECT_EQ(expect,dt.getTomorrow());
 }
 TEST(date,datetime_gettomorrow2)
 {
     DateTime dt(1,11,2018);
-    std::string expect="02 november 2018, friday";
+    std::string expect="02 november 2018, Friday";
     EXPECT_EQ(expect,dt.getTomorrow());
 }
 TEST(date,datetime_gettoday)
 {
     DateTime dt(1,11,2018);
-    std::string expect="01 november 2018, thursday";
+    std::string expect="01 november 2018, Thursday";
     EXPECT_EQ(expect,dt.getToday());
 }
 TEST(date,datetime_getdiff1)
@@ -59,9 +59,9 @@ TEST(date,datetime_getdiff2)
 }
 TEST(calc,delta)
 {    
-    EXPECT_DOUBLE_EQ(0.159,calcDelta());
+    EXPECT_DOUBLE_EQ(0.15915494309228961,calcDelta());
 }
 TEST(calc,pool_cost)
 {    
-    EXPECT_DOUBLE_EQ(72254.5,calcCost());
+    EXPECT_DOUBLE_EQ(72256.631032565245,calcCost());
 }

@@ -59,7 +59,7 @@ string DateTime::getFuture(unsigned int N)
 	u->tm_mday += N;
 	time_t timer3 = mktime(u);
 	u = localtime(&timer3);
-	strftime(s, 40, "%d.%m.%Y, %A", u);
+	strftime(s, 40, "%d %B %Y, %a", u);
 	return string(s);
 }
 
@@ -73,7 +73,7 @@ string DateTime::getPast(unsigned int N)
 	u->tm_mday -= N;
 	time_t timer3 = mktime(u);
 	u = localtime(&timer3);
-	strftime(s, 40, "%d.%m.%Y, %A", u);
+	strftime(s, 40, "%d %B %Y, %a", u);
 	return string(s);
 }
 
