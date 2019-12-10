@@ -5,6 +5,8 @@
 #include <string>
 #include <math.h>
 
+using namespace std;
+
 class DateTime{
     private:
         int day;

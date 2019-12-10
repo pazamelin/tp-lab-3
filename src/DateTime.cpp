@@ -1,5 +1,9 @@
 #include "DateTime.h"
+#include <time.h>
+#include <string>
+#include <math.h>
 
+using namespace std;
 string DateTime::ttos(tm* th){
     string str;
     if(th->tm_mday < 10){
