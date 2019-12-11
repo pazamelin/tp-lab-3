@@ -1,7 +1,7 @@
 #include "Circle.h"
 #include <math.h>
 
-const double pi = 3.14159265;
+const double pi = 3.1415;
 
 Circle::Circle(double newrad) {
 	setRadius(newrad);
