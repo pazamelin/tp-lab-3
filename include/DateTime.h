@@ -48,7 +48,6 @@ public:
     DateTime(short, short, short);
     DateTime();
     DateTime(DateTime const&);
-    ~DateTime();
     std::string getToday();
     std::string getYesterday();
     std::string getTomorrow();
