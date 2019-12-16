@@ -10,7 +10,7 @@
 #define task1_hpp
 
 #include <stdio.h>
-#include "Circle.hpp"
+#include "Circle.h"
 
 #define EARTHRAD 6378.1
 #define FENCECOST 2000
