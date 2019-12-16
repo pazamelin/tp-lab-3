@@ -36,11 +36,14 @@ DateTime::DateTime (const DateTime &newval)
 
 std::string DateTime::dateToString(tm val)
 {
-    std::string result = "";
-    if (val.tm_mday < 10)
-        result += "0";
-    result += std::to_string(val.tm_mday) + " " + months[val.tm_mon] + " " + std::to_string(val.tm_year) + ", " + days[val.tm_wday - 1];
-    return result;
+    char mbstr[100] = "";
+    val.tm_year-=1900;
+    auto tmp = mktime(&val);
+    std::strftime(mbstr, 40, "%d %B %Y, %A", localtime(&tmp));
+    std::string data (mbstr);
+    std::transform(data.begin(), data.end(), data.begin(),
+    [](unsigned char c){ return std::tolower(c); });
+    return data;
 }
 
 std::string DateTime::getPast(unsigned int N)

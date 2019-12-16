@@ -20,30 +20,6 @@ private:
     tm timeval;
     void getCurrentTime();
     std::string dateToString(tm);
-    std::vector<std::string> months = {
-        "january",
-        "february",
-        "march",
-        "april",
-        "may",
-        "june",
-        "july",
-        "august",
-        "september",
-        "october",
-        "november",
-        "december"
-    };
-
-    std::vector<std::string> days = {
-        "sunday",
-        "monday",
-        "tuesday",
-        "wednesday",
-        "thursday",
-        "friday",
-        "satturday"
-    };
 public:
     DateTime(short, short, short);
     DateTime();
