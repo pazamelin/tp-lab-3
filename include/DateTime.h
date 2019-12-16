@@ -12,6 +12,8 @@
 #include <ctime>
 #include <string>
 #include <vector>
+#include <algorithm>
+#include <cctype>
 
 #define DAY 86400
 
