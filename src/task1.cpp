@@ -9,8 +9,8 @@ double calcDelta(){
     Circle rope(earthRad);
     double newFerence = rope.getFerence() + 1;
     rope.setFerence(newFerence);
-    double gap=rope.getRadius()-earthRad;
-    return gap;
+    double res=round((rope.getRadius()-earthRad)*1000)/1000;
+    return res;
 
 
 }
