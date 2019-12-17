@@ -13,6 +13,5 @@ int main() {
 	cout << test_day1.getFuture(123) << endl;
 	cout << test_day1.getPast(123) << endl;
 
-	system("pause");
 	return 0;
 }

@@ -15,12 +15,6 @@ void DateTime::wday_adjustment(int day, int month, int year){ //подстраивает ден
 }
 
 DateTime::DateTime(int day, int month, int year){
-	/*time_t epoch = time(NULL);
-	date = *localtime(&epoch);
-	date.tm_mday = day;
-	date.tm_mon = month - 1;
-	date.tm_year = year - 1900;
-	mktime(&date);*/
 	month -= 1;
 	year -= 1900;
 	wday_adjustment(day, month, year);
@@ -31,7 +25,7 @@ DateTime::DateTime(){
 	date = *localtime(&epoch);
 }
 
-DateTime::DateTime(DateTime & date2)
+DateTime::DateTime(DateTime & day2)
 {
 	this->date = date2.date;
 }
@@ -95,8 +89,8 @@ string DateTime::getPast(unsigned int N){
 	return string_output(&date);
 }
 
-int DateTime::getDifference(DateTime & day){
+int DateTime::getDifference(DateTime & day2){
 	time_t secs1 = mktime(&date);
-	time_t secs2 = mktime(&day.date);
+	time_t secs2 = mktime(&day2.date);
 	return abs(secs2 - secs1) / (60 * 60 * 24);
 }
