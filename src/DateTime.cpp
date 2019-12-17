@@ -27,7 +27,7 @@ DateTime::DateTime(){
 
 DateTime::DateTime(DateTime & day2)
 {
-	this->date = date2.date;
+	this->date = day2.date;
 }
 
 string DateTime::string_output(struct tm *output_date) {
