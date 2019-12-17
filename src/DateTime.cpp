@@ -44,7 +44,7 @@ string DateTime::string_output(struct tm *output_date) {
 	else {
 		date_text = "";
 	}
-	date_text += to_string(output_date->tm_mday) + " " + month_word[output_date->tm_mon] + " " + to_string(output_date->tm_year + 1900) + ", " + " " + day_word[output_date->tm_wday];
+	date_text += to_string(output_date->tm_mday) + " " + month_word[output_date->tm_mon] + " " + to_string(output_date->tm_year + 1900) + ", "+ day_word[output_date->tm_wday];
 	return date_text;
 }
 
