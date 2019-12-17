@@ -19,7 +19,7 @@ void Circle::setFerence(double circle_ference){
 }
 
 double Circle::getFerence() {
-    return Circle::ference;
+    return round(this->ference*1000)/1000;
 }
 
 
@@ -31,6 +31,6 @@ void Circle::setArea(double circle_area) {
 
 
 double Circle::getArea() {
-    return Circle::area;
+    return round(this->area*1000)/1000;
 }
 
