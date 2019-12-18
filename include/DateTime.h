@@ -27,8 +27,8 @@ class DateTime{
 private:
     time_t now; //текущее время в секундах
     tm* timeStructure; //время по канону
-    const std::vector<std::string> days = {"sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday" };
-    const std::vector<std::string> months = { "january","february","march","april","may","june","july","august",
+    static const std::vector<std::string> days = {"sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday" };
+    static const std::vector<std::string> months = { "january","february","march","april","may","june","july","august",
         "september","october","november","december" };
     std::string date_to_string(tm* time); //перевод в канонное состояние
 public:
