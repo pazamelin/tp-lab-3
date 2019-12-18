@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 
-double land_and_rope();
-double swimming_pool();
+double calcDelta();
+double calcCost();
 
 #endif /* task1_hpp */

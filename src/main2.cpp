@@ -6,6 +6,6 @@
 using namespace std;
 
 int main(int argc, const char * argv[]) {
-    cout << swimming_pool() << endl;
+    cout << calcCost() << endl;
     return 0;
 }
