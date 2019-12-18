@@ -5,6 +5,7 @@
 #include <math.h>
 
 using namespace std;
+typedef unsigned int number;
 
 class DateTime
 {
@@ -13,13 +14,12 @@ class DateTime
 		static string days[7];
 		static string months[12];
 		
-		tm *calendarTime;
 		time_t now;
 
-		string timeToString(tm *);
+		string timeToString(time_t);
 
 	public:
-		DateTime(unsigned int day, unsigned int month, unsigned int year);
+		DateTime(const number , const number , const number );
 		DateTime();
 		DateTime(const DateTime&);
 		~DateTime();
@@ -27,7 +27,7 @@ class DateTime
 		string getToday();
 		string getYesterday();
 		string getTomorrow();
-		string getFuture(unsigned int N);
-		string getPast(unsigned int N);
-		unsigned int getDifference(DateTime&);
+		string getFuture(number);
+		string getPast(number);
+		number getDifference(DateTime&);
 };

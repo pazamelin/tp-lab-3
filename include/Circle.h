@@ -7,13 +7,13 @@ class Circle {
 		double area; // square
 
 	public:
-		Circle(double);
+		Circle(const double);
 		Circle();
 		~Circle();
 
-		void setRadius(double newRaduis);
-		void setFerence(double newFerence);
-		void setArea(double newArea);
+		void setRadius(const double );
+		void setFerence(const double );
+		void setArea(const double );
 		double getRadius();
 		double getFerence();
 		double getArea();

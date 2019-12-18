@@ -9,34 +9,32 @@ string DateTime::days[7] = { "sunday", "monday", "tuesday", "wednesday", "thursd
 string DateTime::months[12] = { "january", "february", "march", "april", "may", "june", "july",
 							"august", "september", "october", "november", "december" };
 
-DateTime::DateTime(unsigned int day, unsigned int month, unsigned year) {
-	now = time(NULL);
-	calendarTime = localtime(&now);
+DateTime::DateTime(const number day, const number month, const number year) {
+	time(&now);
+	tm *calendarTime = localtime(&now);
 
 	calendarTime->tm_mday = day;
 	calendarTime->tm_mon = month - 1;
 	calendarTime->tm_year = year - 1900;
 
 	now = mktime(calendarTime);
-	calendarTime = localtime(&now);
 }
 
 DateTime::DateTime(){
-	now = time(NULL);
-	calendarTime = localtime(&now);
+	time(&now);
 }
 
 DateTime::DateTime(const DateTime &from) {
 	now = from.now;
-	calendarTime = localtime(&now);
 }
 
 DateTime::~DateTime() {
 	
 }
 
-string DateTime::timeToString(tm *calendarTime) {
+string DateTime::timeToString(time_t now) {
 	//07 november 2018, wedensday
+	tm *calendarTime = localtime(&now);
 	string ans("");
 
 	if (calendarTime->tm_mday <= 9) {
@@ -53,7 +51,7 @@ string DateTime::timeToString(tm *calendarTime) {
 
 string DateTime::getToday() {
 	//cout << calendarTime->tm_mday;
-	return timeToString(localtime(&now));
+	return timeToString(now);
 }
 
 string DateTime::getYesterday() {
@@ -64,25 +62,23 @@ string DateTime::getTomorrow() {
 	return getFuture(1);
 }
 
-string DateTime::getPast(unsigned int N) {
+string DateTime::getPast(number N) {
 	tm *pastCal = localtime(&now);
 	pastCal->tm_mday -= N;
 	
 	time_t pastTime = mktime(pastCal);
-	pastCal = localtime(&pastTime);
-	return timeToString(pastCal);
+	return timeToString(pastTime);
 }
 
-string DateTime::getFuture(unsigned int N) {
+string DateTime::getFuture(number N) {
 	tm *futureCal = localtime(&now);
 	futureCal->tm_mday += N;
 
 	time_t futureTime = mktime(futureCal);
-	futureCal = localtime(&futureTime);
-	return timeToString(futureCal);
+	return timeToString(futureTime);
 }
 
-unsigned int DateTime::getDifference(DateTime& target) {
+number DateTime::getDifference(DateTime& target) {
 
 	time_t targetTime = target.now;
 	return abs(targetTime - now)/(24*60*60);

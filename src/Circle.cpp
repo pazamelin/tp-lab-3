@@ -2,7 +2,7 @@
 #include <math.h>
 const double pi = 3.1415;
 
-Circle::Circle(double newRadius){
+Circle::Circle(const double newRadius){
 	setRadius(newRadius);
 }
 
@@ -14,19 +14,19 @@ Circle::~Circle() {
 
 }
 
-void Circle::setRadius(double newRadius) {
+void Circle::setRadius(const double newRadius) {
 	radius = newRadius;
 	ference = 2 * pi* newRadius;
 	area = pi * newRadius * newRadius;
 }
 
-void Circle::setFerence(double newFerence) {
+void Circle::setFerence(const double newFerence) {
 	ference = newFerence;
 	radius = ference / 2 / pi;
 	area = pi * radius * radius;
 }
 
-void Circle::setArea(double newArea) {
+void Circle::setArea(const double newArea) {
 	area = newArea;
 	radius = sqrt(area / pi);
 	ference = 2 * pi * radius;
