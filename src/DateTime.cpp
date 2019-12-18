@@ -15,15 +15,14 @@ DateTime::DateTime(int day, int month, int year){ // конструктор с �
 }
 DateTime::DateTime(){ // конструктор без параметров (объект использует текущую дату);
     time(&now);
-    timeStructure = localtime(&now);
 }
-DateTime::DateTime(DateTime &data){// конструктор копирования (создаём копию другого объекта);
+DateTime::DateTime(DateTime &data){// конструктор копирования (создаём копию другого объекта) по указателю на другой объект;
     now = data.now;
     timeStructure = data.timeStructure;
 }
 std::string DateTime::getFuture(unsigned int N){ // getFuture(unsigned int N) - возвращение даты через N дней в будущем;
     time_t temp = now + N * 24 * 3600; //к текущему времени в секундах + количество будущих секунд
-    tm* future = localtime(&temp);
+    tm* future = localtime(&temp); //localtime переводит количество секунд во время в tm_structure
     return date_to_string(future);
 }
 std::string DateTime::getToday(){ // getToday() - возвращение текущей даты в виде строки, с указанием дня недели и названия месяца (например 07 november 2018, wedensday);
