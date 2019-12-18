@@ -1,8 +1,9 @@
 #include <iostream>
 #include "DateTime.h"
 
-
 using namespace std;
+
+// демонстрация использования класса DateTime
 
 int main(int argc, const char * argv[]) {
     DateTime data(18,01,2000);
