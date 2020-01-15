@@ -17,7 +17,7 @@ string DateTime::timetostr(const tm& time)
 	if (time.tm_mday < 10)
 		result += "0";
 	result+=to_string(time.tm_mday);
-	result += " " + months[time.tm_mon] + " " + to_string(time.tm_year + 1900) + "," + weeks[time.tm_wday];
+	result += " " + months[time.tm_mon] + " " + to_string(time.tm_year + 1900) + ", " + weeks[time.tm_wday];
 	return result;
 }
 
